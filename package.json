@@ -1,16 +1,16 @@
 {
-  "name": "zenix",
-  "description": "A polished Astro SaaS theme with landing pages, blog, changelog, dark mode, search, and MDX content.",
+  "name": "agnexum",
+  "description": "Agnexum Astro site based on the Zenix theme.",
   "type": "module",
   "version": "0.0.1",
   "license": "MIT",
-  "homepage": "https://zenix.farros.co/",
+  "homepage": "https://github.com/z0gg/agnexum",
   "repository": {
     "type": "git",
-    "url": "https://github.com/farrosfr/zenix.git"
+    "url": "https://github.com/z0gg/agnexum.git"
   },
   "bugs": {
-    "url": "https://github.com/farrosfr/zenix/issues"
+    "url": "https://github.com/z0gg/agnexum/issues"
   },
   "keywords": [
     "astro",

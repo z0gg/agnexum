@@ -1,19 +1,19 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_TITLE = 'Zenix';
-export const SITE_DESCRIPTION = 'High-converting, performance-focused Astro theme for Micro-SaaS products.';
-export const SITE_URL = 'https://zenix.farros.co'; // Replace with your domain
-export const REPOSITORY_URL = 'https://github.com/farrosfr/zenix';
+export const SITE_TITLE = 'Agnexum';
+export const SITE_DESCRIPTION = 'Agnexum — Astro site built from the Zenix theme.';
+export const SITE_URL = 'https://agnexum.pages.dev'; // Replace with your domain
+export const REPOSITORY_URL = 'https://github.com/z0gg/agnexum';
 
 // Brand Settings
-export const BRAND_NAME = 'Zenix';
-export const BRAND_LOGO_TEXT = 'Z';
+export const BRAND_NAME = 'Agnexum';
+export const BRAND_LOGO_TEXT = 'A';
 
 // Social Links
 export const SOCIAL_LINKS = {
   twitter: 'https://twitter.com/farrosfr_',
-  github: 'https://github.com/farrosfr',
+  github: 'https://github.com/z0gg',
   linkedin: 'https://linkedin.com/in/yourhandle',
 };
 
