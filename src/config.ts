@@ -54,4 +54,11 @@ export const FOOTER_LINKS = [
       { label: 'Sénégal', href: '/#reseau' },
     ],
   },
+  {
+    title: 'Légal',
+    links: [
+      { label: 'Politique de confidentialité', href: '/politique-confidentialite/' },
+      { label: 'Conditions d’utilisation', href: '/conditions-utilisation/' },
+    ],
+  },
 ];
