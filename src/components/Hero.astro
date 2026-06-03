@@ -2,8 +2,8 @@
 import Button from './Button.astro';
 ---
 
-<section id="hero" class="relative flex min-h-[92svh] items-center justify-center overflow-hidden bg-primary-950 px-4 py-32 text-center text-white sm:px-6 lg:min-h-screen lg:px-8">
-  <picture class="absolute inset-0 -z-20">
+<section id="hero" class="relative isolate flex min-h-[92svh] items-center justify-center overflow-hidden bg-primary-950 px-4 py-32 text-center text-white sm:px-6 lg:min-h-screen lg:px-8">
+  <picture class="absolute inset-0 z-0">
     <source srcset="/images/hero/hero-montreal-office.webp" type="image/webp" />
     <img
       src="/images/hero/hero-montreal-office.webp"
@@ -16,10 +16,10 @@ import Button from './Button.astro';
       decoding="async"
     />
   </picture>
-  <div class="absolute inset-0 -z-10 bg-[linear-gradient(135deg,rgba(15,42,71,.88)_0%,rgba(26,58,82,.82)_52%,rgba(15,42,71,.9)_100%)]"></div>
-  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_30%,rgba(201,169,97,.18),transparent_36%)]"></div>
+  <div class="absolute inset-0 z-10 bg-[linear-gradient(135deg,rgba(15,42,71,.78)_0%,rgba(26,58,82,.68)_52%,rgba(15,42,71,.82)_100%)]"></div>
+  <div class="absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_30%,rgba(201,169,97,.16),transparent_36%)]"></div>
 
-  <div class="mx-auto max-w-5xl reveal-on-scroll">
+  <div class="relative z-20 mx-auto max-w-5xl reveal-on-scroll">
     <p class="mb-6 text-sm font-bold uppercase tracking-[0.32em] text-accent-300 sm:text-base">
       Bienvenue
     </p>
