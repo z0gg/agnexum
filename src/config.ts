@@ -2,7 +2,7 @@
 
 export const SITE_TITLE = 'AG Nexum Canada';
 export const SITE_DESCRIPTION = 'Un cabinet canadien multidisciplinaire au service de la mobilité, du capital et de la performance.';
-export const SITE_URL = 'https://agnexum.pages.dev'; // Replace with your canonical domain when ready
+export const SITE_URL = 'https://agnexum.ca';
 export const REPOSITORY_URL = 'https://github.com/z0gg/agnexum';
 
 // Brand Settings
