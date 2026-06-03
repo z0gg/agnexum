@@ -1,73 +1,74 @@
 ---
-const team = [
-  {
-    name: 'Anselme Guigui',
-    role: 'Président-directeur général · Fondateur',
-    bio: "Architecte du groupe et de ses quatre divisions, Anselme Guigui pilote la stratégie corporate, le développement international et les partenariats institutionnels d'AG Nexum. Établi au Québec depuis plus de vingt ans, il combine une formation de spécialiste en médecine et une expertise opérationnelle acquise au sein du Groupe Master, leader nord-américain de la distribution CVAC.",
-    initials: 'AG',
-    image: '/images/team/anselme-guigui.webp',
+import type { Locale } from '../config';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'fr' } = Astro.props;
+const copy = {
+  fr: {
+    id: 'equipe',
+    kicker: 'Équipe exécutive',
+    title: 'Les têtes de file des départements clés.',
+    portraitAlt: 'Portrait de',
+    team: [
+      {
+        name: 'Anselme Guigui',
+        role: 'Président-directeur général · Fondateur',
+        bio: "Architecte du groupe et de ses quatre divisions, Anselme Guigui pilote la stratégie corporate, le développement international et les partenariats institutionnels d'AG Nexum. Établi au Québec depuis plus de vingt ans, il combine une formation de spécialiste en médecine et une expertise opérationnelle acquise au sein du Groupe Master, leader nord-américain de la distribution CVAC.",
+        initials: 'AG',
+        image: '/images/team/anselme-guigui.webp',
+      },
+      { name: 'David Tremblay', role: 'Développement & stratégie', bio: "Pilote le développement commercial du groupe et coordonne les initiatives stratégiques transversales aux quatre divisions. Supervise l'expansion du portefeuille de partenaires institutionnels.", initials: 'DT' },
+      { name: 'Me Catherine Beaulieu', role: 'Affaires juridiques & conformité', bio: 'Dirige le département juridique. Supervise la conformité réglementaire, la rédaction et la négociation des contrats commerciaux ainsi que les relations avec les ordres professionnels.', initials: 'CB', image: '/images/team/catherine-beaulieu.webp' },
+      { name: 'Sandrine Mboumba', role: 'Gestion des dossiers', bio: "Dirige la gestion des dossiers clients pour l'ensemble du groupe. Structure les processus opérationnels et garantit la qualité du suivi de la prise de contact à la clôture du mandat.", initials: 'SM', image: '/images/team/sandrine-mboumba.webp' },
+      { name: 'Aïcha Diallo', role: 'Services francophones', bio: "Dirige l'accompagnement client en français, langue principale du groupe. Coordonne les équipes servant les clientèles d'Afrique francophone et du Québec.", initials: 'AD', image: '/images/team/aicha-diallo.webp' },
+      { name: 'Carlos Mendoza', role: 'Services hispanophones', bio: 'Pilote le développement des services destinés à la clientèle hispanophone. Focus sur les corridors Amérique latine–Canada.', initials: 'CM', image: '/images/team/carlos-mendoza.webp' },
+      { name: 'Yasmine Haddad', role: 'Services arabophones', bio: 'Dirige le service client arabophone et structure le développement du groupe sur les marchés du Maghreb et du Moyen-Orient.', initials: 'YH', image: '/images/team/yasmine-haddad.webp' },
+    ],
   },
-  {
-    name: 'David Tremblay',
-    role: 'Développement & stratégie',
-    bio: "Pilote le développement commercial du groupe et coordonne les initiatives stratégiques transversales aux quatre divisions. Supervise l'expansion du portefeuille de partenaires institutionnels.",
-    initials: 'DT',
+  en: {
+    id: 'team',
+    kicker: 'Executive team',
+    title: 'Leaders across the group’s key departments.',
+    portraitAlt: 'Portrait of',
+    team: [
+      {
+        name: 'Anselme Guigui',
+        role: 'Chief Executive Officer · Founder',
+        bio: 'Architect of the group and its four divisions, Anselme Guigui leads AG Nexum’s corporate strategy, international development and institutional partnerships. Established in Québec for more than twenty years, he combines specialist medical training with operational expertise gained within Groupe Master, a North American leader in HVAC distribution.',
+        initials: 'AG',
+        image: '/images/team/anselme-guigui.webp',
+      },
+      { name: 'David Tremblay', role: 'Development & Strategy', bio: 'Leads the group’s business development and coordinates strategic initiatives across the four divisions. Oversees the expansion of the institutional partner portfolio.', initials: 'DT' },
+      { name: 'Me Catherine Beaulieu', role: 'Legal Affairs & Compliance', bio: 'Heads the legal department. Oversees regulatory compliance, drafting and negotiation of commercial agreements, and relationships with professional orders.', initials: 'CB', image: '/images/team/catherine-beaulieu.webp' },
+      { name: 'Sandrine Mboumba', role: 'Case Management', bio: 'Leads client case management across the group. Structures operating processes and ensures the quality of follow-up from first contact to mandate closure.', initials: 'SM', image: '/images/team/sandrine-mboumba.webp' },
+      { name: 'Aïcha Diallo', role: 'Francophone Services', bio: 'Leads French-language client support, the group’s primary service language. Coordinates teams serving French-speaking African and Québec client groups.', initials: 'AD', image: '/images/team/aicha-diallo.webp' },
+      { name: 'Carlos Mendoza', role: 'Hispanophone Services', bio: 'Leads the development of services for Spanish-speaking clients, with a focus on the Latin America–Canada corridors.', initials: 'CM', image: '/images/team/carlos-mendoza.webp' },
+      { name: 'Yasmine Haddad', role: 'Arabic-language Services', bio: 'Leads Arabic-language client service and structures the group’s development across Maghreb and Middle Eastern markets.', initials: 'YH', image: '/images/team/yasmine-haddad.webp' },
+    ],
   },
-  {
-    name: 'Me Catherine Beaulieu',
-    role: 'Affaires juridiques & conformité',
-    bio: 'Dirige le département juridique. Supervise la conformité réglementaire, la rédaction et la négociation des contrats commerciaux ainsi que les relations avec les ordres professionnels.',
-    initials: 'CB',
-    image: '/images/team/catherine-beaulieu.webp',
-  },
-  {
-    name: 'Sandrine Mboumba',
-    role: 'Gestion des dossiers',
-    bio: "Dirige la gestion des dossiers clients pour l'ensemble du groupe. Structure les processus opérationnels et garantit la qualité du suivi de la prise de contact à la clôture du mandat.",
-    initials: 'SM',
-    image: '/images/team/sandrine-mboumba.webp',
-  },
-  {
-    name: 'Aïcha Diallo',
-    role: 'Services francophones',
-    bio: "Dirige l'accompagnement client en français, langue principale du groupe. Coordonne les équipes servant les clientèles d'Afrique francophone et du Québec.",
-    initials: 'AD',
-    image: '/images/team/aicha-diallo.webp',
-  },
-  {
-    name: 'Carlos Mendoza',
-    role: 'Services hispanophones',
-    bio: 'Pilote le développement des services destinés à la clientèle hispanophone. Focus sur les corridors Amérique latine–Canada.',
-    initials: 'CM',
-    image: '/images/team/carlos-mendoza.webp',
-  },
-  {
-    name: 'Yasmine Haddad',
-    role: 'Services arabophones',
-    bio: 'Dirige le service client arabophone et structure le développement du groupe sur les marchés du Maghreb et du Moyen-Orient.',
-    initials: 'YH',
-    image: '/images/team/yasmine-haddad.webp',
-  },
-];
+}[lang];
 ---
 
-<section id="equipe" class="relative overflow-hidden bg-white py-32 dark:bg-[#071522]">
+<section id={copy.id} class="relative overflow-hidden bg-white py-32 dark:bg-[#071522]">
   <div class="absolute right-0 top-1/2 h-[500px] w-[500px] -translate-y-1/2 translate-x-1/3 rounded-full bg-primary-500/10 blur-[100px] mix-blend-multiply dark:bg-accent-500/5 dark:mix-blend-screen"></div>
 
   <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-20 max-w-3xl text-center reveal-on-scroll">
-      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">Équipe exécutive</p>
-      <h2 class="mb-6 text-4xl font-extrabold italic text-primary-900 dark:text-white md:text-5xl">Les têtes de file des départements clés.</h2>
+      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">{copy.kicker}</p>
+      <h2 class="mb-6 text-4xl font-extrabold italic text-primary-900 dark:text-white md:text-5xl">{copy.title}</h2>
     </div>
 
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {team.map((person, index) => (
+      {copy.team.map((person, index) => (
         <article class="glass-panel group relative flex h-full flex-col rounded-3xl p-8 hover-glow reveal-on-scroll" style={`transition-delay: ${index * 70}ms;`}>
           <div class="absolute right-6 top-6 font-serif text-6xl leading-none text-slate-100 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110 dark:text-slate-800/50">“</div>
           {person.image ? (
             <img
               src={person.image}
-              alt={`Portrait de ${person.name}`}
+              alt={`${copy.portraitAlt} ${person.name}`}
               width="640"
               height="640"
               loading="lazy"
