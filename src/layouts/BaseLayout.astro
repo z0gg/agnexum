@@ -5,7 +5,6 @@ import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import CommandPalette from '../components/CommandPalette.astro';
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '../config';
 import { resolvePath } from '../utils/navigation';
 
@@ -71,11 +70,13 @@ const structuredData =
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={resolvePath('/favicon.svg')} />
+    <link rel="shortcut icon" href={resolvePath('/favicon.ico')} />
+    <link rel="apple-touch-icon" href={resolvePath('/apple-touch-icon.png')} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="sitemap" href={resolvePath('/sitemap.xml')} />
     <meta name="generator" content={Astro.generator} />
@@ -96,7 +97,7 @@ const structuredData =
     )}
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@farrosfr_" />
+    <meta name="twitter:site" content="@agnexum" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageURL} />
@@ -127,8 +128,8 @@ const structuredData =
 
         applyTheme(getPreferredTheme());
 
-        if (!window.__zenixThemeBound) {
-          window.__zenixThemeBound = true;
+        if (!window.__agnexumThemeBound) {
+          window.__agnexumThemeBound = true;
 
           document.addEventListener('astro:before-swap', (event) => {
             const theme = localStorage.getItem('theme') || getPreferredTheme();
@@ -146,8 +147,7 @@ const structuredData =
       })();
     </script>
   </head>
-  <body class="flex flex-col min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-[#09090b] dark:text-slate-100">
-    <CommandPalette />
+  <body class="flex flex-col min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-[#071522] dark:text-slate-100">
     <Navbar />
     <main class="flex-grow">
       <slot />

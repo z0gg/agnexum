@@ -1,25 +1,26 @@
-import { getCollection } from 'astro:content';
-
 export async function GET() {
-  const blog = await getCollection('blog');
-  const changelog = await getCollection('changelog');
-
   const searchIndex = [
-    ...blog.map(post => ({
-      title: post.data.title,
-      description: post.data.description,
-      slug: `/blog/${post.id}`,
-      type: 'Blog Post'
-    })),
-    ...changelog.map(entry => ({
-      title: `${entry.data.version}: ${entry.data.title}`,
-      description: 'Product update and changelog entry.',
-      slug: '/changelog',
-      type: 'Changelog'
-    }))
+    {
+      title: 'AG Nexum Canada',
+      description: 'Un cabinet canadien multidisciplinaire au service de la mobilité, du capital et de la performance.',
+      slug: '/',
+      type: 'Accueil',
+    },
+    {
+      title: 'Divisions',
+      description: 'ImmiCan, AL Escape-ImmiCan, AG Nexum Recouvrement et AG HVAC Solutions.',
+      slug: '/#divisions',
+      type: 'Section',
+    },
+    {
+      title: 'Équipe exécutive',
+      description: 'Les têtes de file des départements clés.',
+      slug: '/#equipe',
+      type: 'Section',
+    },
   ];
 
   return new Response(JSON.stringify(searchIndex), {
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json' },
   });
 }
