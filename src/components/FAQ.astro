@@ -1,40 +1,74 @@
 ---
-const reasons = [
-  {
-    title: 'Ancrage canadien',
-    text: 'Siège social au Québec. Conformité au Registraire des entreprises. Standards canadiens en matière de service, de protection des renseignements personnels et d’éthique professionnelle.',
-  },
-  {
-    title: 'Portée internationale',
-    text: "Réseau d’agents structurés en Afrique francophone — Guinée, Côte d’Ivoire, Cameroun — et partenariats B2B en cours d’expansion sur les axes Europe et Amériques.",
-  },
-  {
-    title: 'Conformité réglementaire',
-    text: "Aucun conseil juridique en immigration n’est rendu hors du cadre CRCIC ou du Barreau canadien. Aucune vente de titre de transport en direct. Aucun frais avant succès en recouvrement.",
-  },
-  {
-    title: 'Chaîne de valeur intégrée',
-    text: 'Juridique, gestion de dossiers, services linguistiques, développement commercial. Une seule maison, plusieurs spécialités, un seul standard de qualité.',
-  },
-];
+import type { Locale } from '../config';
 
-const network = [
-  ['🇨🇮', "Côte d’Ivoire", 'Sous-traitance — IMMONEXT'],
-  ['🇬🇳', 'Guinée', 'Représentation structurelle'],
-  ['🇨🇲', 'Cameroun', 'Développement actif'],
-  ['🇸🇳', 'Sénégal', 'Expansion 2026'],
-];
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'fr' } = Astro.props;
+const data = {
+  fr: {
+    whyId: 'pourquoi',
+    networkId: 'reseau',
+    whyKicker: 'Pourquoi AG Nexum',
+    whyTitle: 'Quatre raisons de nous choisir.',
+    reasons: [
+      { title: 'Ancrage canadien', text: 'Siège social au Québec. Conformité au Registraire des entreprises. Standards canadiens en matière de service, de protection des renseignements personnels et d’éthique professionnelle.' },
+      { title: 'Portée internationale', text: 'Réseau d’agents structurés en Afrique francophone — Guinée, Côte d’Ivoire, Cameroun — et partenariats B2B en cours d’expansion sur les axes Europe et Amériques.' },
+      { title: 'Conformité réglementaire', text: 'Aucun conseil juridique en immigration n’est rendu hors du cadre CRCIC ou du Barreau canadien. Aucune vente de titre de transport en direct. Aucun frais avant succès en recouvrement.' },
+      { title: 'Chaîne de valeur intégrée', text: 'Juridique, gestion de dossiers, services linguistiques, développement commercial. Une seule maison, plusieurs spécialités, un seul standard de qualité.' },
+    ],
+    networkKicker: 'Présence & réseau',
+    networkTitle: 'Du Québec vers le monde.',
+    officeKicker: 'Siège social',
+    officeTitle: 'Longueuil — Québec',
+    holding: 'Société de portefeuille canadienne',
+    internationalKicker: 'Réseau international',
+    internationalTitle: 'Représentation structurée par pays',
+    network: [
+      ['🇨🇮', 'Côte d’Ivoire', 'Sous-traitance — IMMONEXT'],
+      ['🇬🇳', 'Guinée', 'Représentation structurelle'],
+      ['🇨🇲', 'Cameroun', 'Développement actif'],
+      ['🇸🇳', 'Sénégal', 'Expansion 2026'],
+    ],
+  },
+  en: {
+    whyId: 'why',
+    networkId: 'network',
+    whyKicker: 'Why AG Nexum',
+    whyTitle: 'Four reasons to choose us.',
+    reasons: [
+      { title: 'Canadian roots', text: 'Head office in Québec. Compliance with the enterprise registrar. Canadian standards for service, privacy protection and professional ethics.' },
+      { title: 'International reach', text: 'A structured agent network across French-speaking Africa — Guinea, Côte d’Ivoire, Cameroon — with B2B partnerships expanding across Europe and the Americas.' },
+      { title: 'Regulatory compliance', text: 'No immigration legal advice is provided outside the CICC/CRCIC or Canadian Bar framework. No direct sale of transportation tickets. No upfront fee for recovery files.' },
+      { title: 'Integrated value chain', text: 'Legal, case management, language services and business development. One house, several specialties, one quality standard.' },
+    ],
+    networkKicker: 'Presence & network',
+    networkTitle: 'From Québec to the world.',
+    officeKicker: 'Head office',
+    officeTitle: 'Longueuil — Québec',
+    holding: 'Canadian holding company',
+    internationalKicker: 'International network',
+    internationalTitle: 'Structured representation by country',
+    network: [
+      ['🇨🇮', 'Côte d’Ivoire', 'Subcontracting — IMMONEXT'],
+      ['🇬🇳', 'Guinea', 'Structural representation'],
+      ['🇨🇲', 'Cameroon', 'Active development'],
+      ['🇸🇳', 'Senegal', '2026 expansion'],
+    ],
+  },
+}[lang];
 ---
 
-<section id="pourquoi" class="relative overflow-hidden bg-slate-50 py-32 dark:bg-[#0c1118]">
+<section id={data.whyId} class="relative overflow-hidden bg-slate-50 py-32 dark:bg-[#0c1118]">
   <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-16 max-w-3xl text-center reveal-on-scroll">
-      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">Pourquoi AG Nexum</p>
-      <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">Quatre raisons de nous choisir.</h2>
+      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">{data.whyKicker}</p>
+      <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">{data.whyTitle}</h2>
     </div>
 
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {reasons.map((reason, index) => (
+      {data.reasons.map((reason, index) => (
         <article class="glass-panel group relative flex h-full min-h-[21rem] flex-col rounded-3xl p-8 hover-glow reveal-on-scroll" style={`transition-delay: ${index * 70}ms;`}>
           <div class="absolute right-6 top-6 font-serif text-6xl leading-none text-slate-100 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110 dark:text-slate-800/50">“</div>
           <div class="relative z-10 mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-accent-200/70 bg-accent-500 text-xl font-extrabold text-primary-950 shadow-lg shadow-primary-950/10 dark:border-accent-500/30 dark:bg-accent-400">
@@ -48,31 +82,31 @@ const network = [
   </div>
 </section>
 
-<section id="reseau" class="relative overflow-hidden bg-white py-32 dark:bg-[#071522]">
+<section id={data.networkId} class="relative overflow-hidden bg-white py-32 dark:bg-[#071522]">
   <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-400/60 to-transparent"></div>
   <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-16 max-w-3xl text-center reveal-on-scroll">
-      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">Présence & réseau</p>
-      <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">Du Québec vers le monde.</h2>
+      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">{data.networkKicker}</p>
+      <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">{data.networkTitle}</h2>
     </div>
 
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[1.1fr_1.4fr]">
       <article class="glass-panel rounded-3xl p-8 reveal-on-scroll hover-glow">
-        <p class="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent-600 dark:text-accent-300">Siège social</p>
-        <h3 class="mb-6 text-3xl font-bold text-slate-900 dark:text-white">Longueuil — Québec</h3>
+        <p class="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent-600 dark:text-accent-300">{data.officeKicker}</p>
+        <h3 class="mb-6 text-3xl font-bold text-slate-900 dark:text-white">{data.officeTitle}</h3>
         <p class="mb-6 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
           771 Rue Dubuisson<br />Longueuil (Québec) J4L 2S8<br />Canada
         </p>
         <p class="rounded-xl border border-primary-100 bg-primary-50 p-4 text-sm font-semibold text-primary-800 dark:border-primary-800/70 dark:bg-primary-950/50 dark:text-accent-200">
-          Société de portefeuille canadienne
+          {data.holding}
         </p>
       </article>
 
       <article class="glass-panel rounded-3xl p-8 reveal-on-scroll hover-glow" style="transition-delay: 100ms;">
-        <p class="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent-600 dark:text-accent-300">Réseau international</p>
-        <h3 class="mb-8 text-3xl font-bold text-slate-900 dark:text-white">Représentation structurée par pays</h3>
+        <p class="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent-600 dark:text-accent-300">{data.internationalKicker}</p>
+        <h3 class="mb-8 text-3xl font-bold text-slate-900 dark:text-white">{data.internationalTitle}</h3>
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {network.map(([flag, country, detail]) => (
+          {data.network.map(([flag, country, detail]) => (
             <div class="rounded-2xl border border-slate-200/70 bg-white/70 p-5 dark:border-slate-800/70 dark:bg-slate-950/30">
               <div class="mb-3 text-3xl">{flag}</div>
               <h4 class="mb-1 text-lg font-bold text-slate-900 dark:text-white">{country}</h4>

@@ -1,8 +1,37 @@
 ---
 import Button from './Button.astro';
+import type { Locale } from '../config';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'fr' } = Astro.props;
+const copy = {
+  fr: {
+    welcome: 'Bienvenue',
+    subtitle: 'Executive Leadership Team',
+    description: 'Un cabinet canadien multidisciplinaire au service de la mobilité, du capital et de la performance.',
+    primary: 'Consultation gratuite',
+    secondary: 'En savoir plus',
+    contactHref: '#contact',
+    aboutHref: '#a-propos',
+    imageAlt: 'Vue de bureau moderne à Montréal',
+  },
+  en: {
+    welcome: 'Welcome',
+    subtitle: 'Executive Leadership Team',
+    description: 'A multidisciplinary Canadian firm serving mobility, capital and performance.',
+    primary: 'Free consultation',
+    secondary: 'Learn more',
+    contactHref: '/en/#contact',
+    aboutHref: '/en/#about',
+    imageAlt: 'Modern office view in Montreal',
+  },
+}[lang];
 ---
 
-<section id="hero" class="relative isolate flex min-h-[92svh] items-center justify-center overflow-hidden bg-primary-950 px-4 py-32 text-center text-white sm:px-6 lg:min-h-screen lg:px-8">
+<section id={lang === 'fr' ? 'hero' : 'hero'} class="relative isolate flex min-h-[92svh] items-center justify-center overflow-hidden bg-primary-950 px-4 py-32 text-center text-white sm:px-6 lg:min-h-screen lg:px-8">
   <picture class="absolute inset-0 z-0">
     <source
       srcset="/images/hero/hero-montreal-office-640.webp 640w, /images/hero/hero-montreal-office-960.webp 960w, /images/hero/hero-montreal-office-1280.webp 1280w, /images/hero/hero-montreal-office-1920.webp 1920w"
@@ -11,7 +40,7 @@ import Button from './Button.astro';
     />
     <img
       src="/images/hero/hero-montreal-office-1280.webp"
-      alt="Vue de bureau moderne à Montréal"
+      alt={copy.imageAlt}
       class="h-full w-full object-cover"
       width="1920"
       height="1080"
@@ -25,7 +54,7 @@ import Button from './Button.astro';
 
   <div class="relative z-20 mx-auto max-w-5xl reveal-on-scroll">
     <p class="mb-6 text-sm font-bold uppercase tracking-[0.32em] text-accent-300 sm:text-base">
-      Bienvenue
+      {copy.welcome}
     </p>
 
     <h1 class="mb-6 text-5xl font-extrabold leading-[1.02] tracking-tight text-white drop-shadow-[0_3px_18px_rgba(0,0,0,.35)] sm:text-6xl md:text-7xl">
@@ -33,19 +62,19 @@ import Button from './Button.astro';
     </h1>
 
     <p class="mx-auto mb-5 max-w-3xl text-xl font-semibold text-accent-200 drop-shadow sm:text-2xl">
-      Executive Leadership Team
+      {copy.subtitle}
     </p>
 
     <p class="mx-auto mb-12 max-w-3xl text-lg leading-relaxed text-white/90 drop-shadow sm:text-2xl">
-      Un cabinet canadien multidisciplinaire au service de la mobilité, du capital et de la performance.
+      {copy.description}
     </p>
 
     <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-      <Button href="#contact" variant="primary" size="lg" class="w-full border border-accent-500/70 bg-accent-700 px-8 py-4 text-lg text-white shadow-xl shadow-primary-950/30 hover:bg-accent-800 sm:w-auto">
-        Consultation gratuite
+      <Button href={copy.contactHref} variant="primary" size="lg" class="w-full border border-accent-500/70 bg-accent-700 px-8 py-4 text-lg text-white shadow-xl shadow-primary-950/30 hover:bg-accent-800 sm:w-auto">
+        {copy.primary}
       </Button>
-      <Button href="#a-propos" variant="outline" size="lg" class="w-full border-white/50 bg-white/10 px-8 py-4 text-lg text-white shadow-xl shadow-primary-950/20 backdrop-blur-md hover:bg-white/20 sm:w-auto">
-        En savoir plus
+      <Button href={copy.aboutHref} variant="outline" size="lg" class="w-full border-white/50 bg-white/10 px-8 py-4 text-lg text-white shadow-xl shadow-primary-950/20 backdrop-blur-md hover:bg-white/20 sm:w-auto">
+        {copy.secondary}
       </Button>
     </div>
   </div>
