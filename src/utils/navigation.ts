@@ -1,5 +1,5 @@
 // Utility to resolve paths correctly regardless of whether the site is hosted 
-// on a root domain (e.g., zenix.com) or a subpath (e.g., github.io/zenix/)
+// on a root domain (e.g., agnexum.ca) or a subpath.
 
 export function resolvePath(path: string) {
   // If the path is an external link or an anchor link, leave it alone
