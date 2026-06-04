@@ -103,6 +103,54 @@ const data = {
       },
     ],
   },
+  es: {
+    aboutId: 'acerca-de',
+    kicker: 'Quiénes somos',
+    title: 'Una sociedad holding canadiense.',
+    titleMuted: 'Cuatro divisiones operativas.',
+    intro: 'AG Nexum Inc. estructura y opera un ecosistema integrado de servicios con altos estándares de cumplimiento.',
+    cardKicker: 'AG Nexum Inc.',
+    cardTitle: 'Sociedad holding canadiense',
+    paragraphs: [
+      'Registrada ante el registro de empresas de Québec, el grupo estructura y opera un ecosistema integrado de servicios con alta exigencia de cumplimiento: inmigración canadiense, viajes internacionales B2B, recuperación de activos no reclamados y tecnologías sectoriales.',
+      'Nuestra fortaleza nace de una combinación poco común: una sede canadiense sujeta a los estándares exigentes de Québec, equipos multilingües calificados y una red internacional estructurada que cubre África francófona, Europa y las Américas.',
+      'Operamos bajo una lógica de intermediación estratégica: calificar, estructurar y certificar flujos comerciales entre continentes francófonos.',
+    ],
+    stats: [
+      ['04', 'Divisiones operativas'],
+      ['11', 'Miembros del equipo ejecutivo'],
+      ['03', 'Idiomas de atención al cliente'],
+      ['20+', 'Años de presencia en Québec'],
+    ],
+    divisionsKicker: 'Nuestras divisiones',
+    divisionsTitle: 'Cuatro marcas, una sola firma.',
+    divisions: [
+      {
+        title: 'ImmiCan',
+        kicker: 'Inmigración canadiense',
+        summary: 'Generación y calificación de prospectos, con orientación hacia consultores CRCIC.',
+        text: 'Plataforma de evaluación preliminar y orientación para candidatos a la inmigración canadiense. Especialización en África francófona: Guinea, Côte d’Ivoire, Camerún y Senegal. Toda asesoría legal de inmigración es prestada por consultores regulados en regla ante el Colegio de Consultores de Inmigración y Ciudadanía (CICC/CRCIC) o por abogados canadienses aliados.',
+      },
+      {
+        title: 'AL Escape-ImmiCan',
+        kicker: 'Viajes internacionales B2B',
+        summary: 'Intermediación comercial y desarrollo de negocios para aerolíneas.',
+        text: 'Actividad estrictamente B2B de intermediación comercial. AL Escape conecta y estructura flujos de clientes para aerolíneas aliadas que operan en los corredores África–Europa–Américas. La división no vende boletos de transporte directamente.',
+      },
+      {
+        title: 'AG Nexum Recuperación',
+        kicker: 'Activos no reclamados',
+        summary: 'Recuperación de activos no reclamados en Québec. Modelo basado en el éxito.',
+        text: 'Búsqueda, validación y restitución de activos inactivos mantenidos por instituciones financieras y autoridades públicas. La remuneración es exclusivamente contingente: sin costos por adelantado y sin cargos para el beneficiario antes de la restitución efectiva.',
+      },
+      {
+        title: 'AG HVAC Solutions',
+        kicker: 'HVAC & SOLUHVAC',
+        summary: 'Generación de prospectos para contratistas HVAC. Plataforma SOLUHVAC.',
+        text: 'Plataforma de generación de prospectos calificados para contratistas HVAC en Canadá, complementada por SOLUHVAC, una aplicación de gestión operativa para técnicos independientes. Integración vertical: adquisición de clientes, gestión de trabajos y facturación.',
+      },
+    ],
+  },
 }[lang];
 
 const icons = [
@@ -134,7 +182,7 @@ const icons = [
           {data.paragraphs.map(paragraph => <p>{paragraph}</p>)}
         </div>
         <div class="relative z-10 mt-8 rounded-xl border border-primary-800 bg-primary-950 p-4 font-mono text-sm text-accent-200 shadow-2xl">
-          <code>Québec → Afrique francophone → Europe → Amériques</code>
+          <code>{lang === 'es' ? 'Québec → África francófona → Europa → Américas' : lang === 'en' ? 'Québec → French-speaking Africa → Europe → Americas' : 'Québec → Afrique francophone → Europe → Amériques'}</code>
         </div>
       </div>
 
