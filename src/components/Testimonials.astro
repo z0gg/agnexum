@@ -85,9 +85,9 @@ const copy = {
       <h2 class="mb-6 text-4xl font-extrabold text-primary-900 dark:text-white md:text-5xl">{copy.title}</h2>
     </div>
 
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div class="mx-auto flex max-w-7xl flex-wrap justify-center gap-8">
       {copy.team.map((person, index) => (
-        <article class="glass-panel group relative flex h-full flex-col rounded-3xl p-8 hover-glow reveal-on-scroll" style={`transition-delay: ${index * 70}ms;`}>
+        <article class="glass-panel group relative flex h-full w-full flex-col rounded-3xl p-8 hover-glow reveal-on-scroll md:basis-[calc(50%-1rem)] lg:basis-[calc(33.333%-1.334rem)]" style={`transition-delay: ${index * 70}ms;`}>
           <div class="absolute right-6 top-6 font-serif text-6xl leading-none text-slate-100 transition-transform duration-500 group-hover:-rotate-12 group-hover:scale-110 dark:text-slate-800/50">“</div>
           {person.image ? (
             <img

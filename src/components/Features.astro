@@ -224,10 +224,10 @@ const statusLabel = (status: string) => status === 'live' ? data.statusLive : st
       <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">{data.divisionsTitle}</h2>
     </div>
 
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div class="mx-auto flex max-w-7xl flex-wrap justify-center gap-6">
       {data.divisions.map((division, index) => (
         <article
-          class="division-card glass-panel group flex min-h-[420px] flex-col overflow-hidden rounded-3xl border-t-4 p-8 hover-glow reveal-on-scroll"
+          class="division-card glass-panel group flex min-h-[420px] w-full flex-col overflow-hidden rounded-3xl border-t-4 p-8 hover-glow reveal-on-scroll md:basis-[calc(50%-0.75rem)] xl:basis-[calc(33.333%-1rem)]"
           style={`--division-color: ${palettes[index]}; border-top-color: ${palettes[index]}; transition-delay: ${index * 80}ms;`}
         >
           <div class="mb-6 flex items-start justify-between gap-4">
