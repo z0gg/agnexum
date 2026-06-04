@@ -6,149 +6,164 @@ interface Props {
 }
 
 const { lang = 'fr' } = Astro.props;
+
+const palettes = ['#1b6fa8', '#7b4a9e', '#b8263a', '#2e7d5b', '#d4580a', '#0d6e8a', '#445e7a'];
+
 const data = {
   fr: {
     aboutId: 'a-propos',
+    divisionsId: 'divisions',
     kicker: 'Qui nous sommes',
     title: 'Un holding canadien.',
-    titleMuted: 'Quatre divisions opérationnelles.',
+    titleMuted: 'Sept divisions opérationnelles.',
     intro: 'AG Nexum Inc. structure et opère un écosystème intégré de services à forte intensité de conformité.',
     cardKicker: 'AG Nexum Inc.',
     cardTitle: 'Société de portefeuille canadienne',
+    route: 'Québec → Afrique francophone → Europe → Amériques',
     paragraphs: [
-      'Société enregistrée au Registraire des entreprises du Québec. Le groupe structure et opère un écosystème intégré de services à forte intensité de conformité — immigration canadienne, voyage international B2B, recouvrement d’actifs non réclamés et technologies sectorielles.',
-      'Notre force tient à une combinaison rare : un siège canadien soumis aux standards les plus exigeants de la province de Québec, des équipes multilingues qualifiées, et un réseau international structuré qui couvre l’Afrique francophone, l’Europe et les Amériques.',
-      'Nous opérons dans une logique d’intermédiation stratégique : qualifier, structurer et certifier les flux commerciaux entre les continents francophones.',
+      'Société constituée et enregistrée au Québec, le groupe est la plateforme unique d’un ensemble de marques spécialisées qui partagent une même exigence : qualifier, structurer et certifier les flux commerciaux entre les continents francophones.',
+      'Notre force repose sur une combinaison rare : un siège canadien soumis aux standards les plus exigeants de la province de Québec, des équipes multilingues qualifiées, et un réseau international structuré couvrant l’Afrique francophone, l’Europe et les Amériques.',
+      'Fondé par Anselme Guigui, PDG, le groupe combine plus de vingt ans d’ancrage québécois, une formation médicale spécialisée et une expertise commerciale opérationnelle au sein du Groupe Master, leader nord-américain de la distribution CVAC.',
     ],
     stats: [
-      ['04', 'Divisions opérationnelles'],
-      ['11', "Membres de l’équipe exécutive"],
-      ['03', 'Langues de service client'],
-      ['20+', "Années d’ancrage au Québec"],
+      ['7', 'Divisions opérationnelles'],
+      ['11+', 'Membres de l’équipe exécutive'],
+      ['3', 'Langues de service client (FR/EN/ES)'],
+      ['20+', 'Années d’ancrage au Québec'],
+      ['NEQ', '2267508507'],
     ],
     divisionsKicker: 'Nos divisions',
-    divisionsTitle: 'Quatre marques, une seule signature.',
+    divisionsTitle: 'Sept marques, une seule signature.',
+    statusLive: 'Opérationnel',
+    statusDeploying: 'En déploiement',
+    statusDevelopment: 'En développement',
     divisions: [
       {
         title: 'ImmiCan',
         kicker: 'Immigration canadienne',
-        summary: 'Génération et qualification de prospects, orientation vers consultants CRCIC.',
-        text: 'Plateforme d’évaluation préliminaire et d’orientation pour candidats à l’immigration canadienne. Spécialisation Afrique francophone : Guinée, Côte d’Ivoire, Cameroun, Sénégal. Tous les conseils juridiques en immigration sont rendus par des consultants réglementés membres en règle du Collège des consultants en immigration et en citoyenneté (CRCIC) ou par des avocats canadiens partenaires.',
+        summary: 'Lead generation & orientation CRCIC',
+        text: 'Plateforme d’évaluation préliminaire et d’orientation pour candidats à l’immigration canadienne. Spécialisation Afrique francophone : Guinée, Côte d’Ivoire, Cameroun, Sénégal. Réseau d’agents REP-001 à REP-005.',
+        note: 'Tous les conseils juridiques en immigration sont rendus par des consultants réglementés membres du CRCIC ou par des avocats canadiens partenaires. ImmiCan opère exclusivement comme intermédiaire de génération de prospects et d’orientation, conformément à l’Art. 91 LIPR.',
+        status: 'live',
       },
       {
         title: 'AL Escape-ImmiCan',
         kicker: 'Voyage international B2B',
-        summary: "Intermédiation et apport d’affaires aux compagnies aériennes.",
-        text: 'Activité strictement B2B d’intermédiation commerciale. AL Escape met en relation et structure des flux de clientèle à destination des compagnies aériennes partenaires opérant sur les corridors Afrique–Europe–Amériques. La division ne vend aucun titre de transport en direct.',
+        summary: 'Intermédiation & apport d’affaires aériens',
+        text: 'Activité strictement B2B d’intermédiation commerciale. AL Escape structure des flux de clientèle à destination des compagnies aériennes partenaires opérant sur les corridors Afrique–Europe–Amériques. La division ne vend aucun titre de transport en direct.',
+        note: 'PDG : Loïc Rigolet. Division positionnée exclusivement comme intermédiaire B2B d’introduction commerciale auprès des compagnies aériennes partenaires.',
+        status: 'live',
       },
       {
         title: 'AG Nexum Recouvrement',
         kicker: 'Actifs non réclamés',
-        summary: 'Récupération d’actifs non réclamés au Québec. Modèle au succès.',
-        text: 'Recherche, validation et restitution d’actifs dormants détenus par les institutions financières et les autorités publiques. Modèle de rémunération exclusivement à la contingence : pas de frais en amont, pas de coût pour le bénéficiaire avant restitution effective.',
+        summary: 'Récupération d’actifs dormants au Québec',
+        text: 'Recherche, validation et restitution d’actifs dormants détenus par les institutions financières et les autorités publiques du Québec. Modèle de rémunération exclusivement à la contingence : aucun frais avant restitution effective.',
+        status: 'live',
       },
       {
         title: 'AG HVAC Solutions',
-        kicker: 'CVAC & SOLUHVAC',
-        summary: 'Lead generation pour entrepreneurs CVAC. Plateforme SOLUHVAC.',
-        text: 'Plateforme de génération de prospects qualifiés pour entrepreneurs CVAC au Canada, complétée par SOLUHVAC, une application de gestion opérationnelle destinée aux techniciens indépendants. Intégration verticale : acquisition client, gestion de chantier, facturation.',
+        kicker: 'CVAC & technologie',
+        summary: 'Lead generation CVAC & plateforme SOLUHVAC',
+        text: 'Plateforme de génération de prospects qualifiés pour entrepreneurs CVAC au Canada, complétée par SOLUHVAC — application bilingue de gestion opérationnelle pour techniciens indépendants : acquisition client, gestion de chantier, facturation.',
+        status: 'live',
+      },
+      {
+        title: 'AG Nexum Prêt',
+        kicker: 'Micro-crédit personnel',
+        summary: 'Micro-prêts 500 – 2 500 CAD',
+        text: 'Service de micro-crédit personnel destiné aux particuliers québécois dans les situations d’urgence financière. Montants de 500 à 2 500 CAD.',
+        note: 'Activité de prêt d’argent réglementée. Opère en stricte conformité avec les dispositions du Code criminel canadien (plafond de 35 % TAP) et la Loi sur la protection du consommateur du Québec. Aucun frais caché. PAD autorisé uniquement sur consentement écrit explicite.',
+        status: 'deploying',
+      },
+      {
+        title: 'AG Expersales',
+        kicker: 'Formation commerciale',
+        summary: 'Formation & développement des ventes',
+        text: 'Programme de formation commerciale intensif destiné aux équipes de vente, entrepreneurs et représentants indépendants. Méthodologies éprouvées en prospection, traitement des objections, négociation et clôture. Contenu adapté aux marchés francophones.',
+        status: 'development',
+      },
+      {
+        title: 'AG Business Intelligence',
+        kicker: 'Intelligence d’affaires',
+        summary: 'Stratégie, analyse & décision',
+        text: 'Offre de conseil en intelligence d’affaires, analyse de marché et stratégie opérationnelle pour les PME et organisations francophones en croissance. Combinaison d’outils analytiques avancés et d’expertise sectorielle des marchés canadiens et africains.',
+        status: 'development',
       },
     ],
   },
   en: {
     aboutId: 'about',
+    divisionsId: 'divisions',
     kicker: 'Who we are',
     title: 'A Canadian holding company.',
-    titleMuted: 'Four operating divisions.',
+    titleMuted: 'Seven operating divisions.',
     intro: 'AG Nexum Inc. structures and operates an integrated ecosystem of compliance-intensive services.',
     cardKicker: 'AG Nexum Inc.',
     cardTitle: 'Canadian holding company',
+    route: 'Québec → French-speaking Africa → Europe → Americas',
     paragraphs: [
-      'Registered with the Québec enterprise registrar, the group structures and operates an integrated ecosystem of compliance-intensive services — Canadian immigration, B2B international travel, unclaimed-asset recovery and sector-focused technologies.',
-      'Our strength comes from a rare combination: a Canadian head office held to Québec’s demanding standards, qualified multilingual teams, and a structured international network covering French-speaking Africa, Europe and the Americas.',
-      'We operate as a strategic intermediary: qualifying, structuring and certifying business flows between francophone continents.',
+      'Incorporated and registered in Québec, the group is the unified platform for specialized brands sharing one requirement: qualifying, structuring and certifying commercial flows between francophone continents.',
+      'Our strength rests on a rare combination: a Canadian head office held to Québec’s demanding standards, qualified multilingual teams, and a structured international network covering French-speaking Africa, Europe and the Americas.',
+      'Founded by CEO Anselme Guigui, the group combines more than twenty years rooted in Québec, specialized medical training and operational commercial expertise gained at Groupe Master, a North American leader in HVAC distribution.',
     ],
     stats: [
-      ['04', 'Operating divisions'],
-      ['11', 'Executive team members'],
-      ['03', 'Client service languages'],
+      ['7', 'Operating divisions'],
+      ['11+', 'Executive team members'],
+      ['3', 'Client service languages (FR/EN/ES)'],
       ['20+', 'Years rooted in Québec'],
+      ['NEQ', '2267508507'],
     ],
     divisionsKicker: 'Our divisions',
-    divisionsTitle: 'Four brands, one signature.',
+    divisionsTitle: 'Seven brands, one signature.',
+    statusLive: 'Operational',
+    statusDeploying: 'Deploying',
+    statusDevelopment: 'In development',
     divisions: [
-      {
-        title: 'ImmiCan',
-        kicker: 'Canadian immigration',
-        summary: 'Lead generation and qualification, with orientation to CRCIC consultants.',
-        text: 'A preliminary assessment and orientation platform for Canadian immigration candidates. Specialized in French-speaking Africa: Guinea, Côte d’Ivoire, Cameroon and Senegal. All immigration legal advice is provided by regulated consultants in good standing with the College of Immigration and Citizenship Consultants (CICC/CRCIC) or by Canadian partner lawyers.',
-      },
-      {
-        title: 'AL Escape-ImmiCan',
-        kicker: 'B2B international travel',
-        summary: 'Commercial intermediation and business development for airlines.',
-        text: 'A strictly B2B commercial intermediation activity. AL Escape connects and structures customer flows for partner airlines operating across the Africa–Europe–Americas corridors. The division does not sell transportation tickets directly.',
-      },
-      {
-        title: 'AG Nexum Recovery',
-        kicker: 'Unclaimed assets',
-        summary: 'Recovery of unclaimed assets in Québec. Success-based model.',
-        text: 'Search, validation and restitution of dormant assets held by financial institutions and public authorities. Compensation is strictly contingency-based: no upfront fees and no cost to the beneficiary before effective restitution.',
-      },
-      {
-        title: 'AG HVAC Solutions',
-        kicker: 'HVAC & SOLUHVAC',
-        summary: 'Lead generation for HVAC contractors. SOLUHVAC platform.',
-        text: 'A qualified lead-generation platform for HVAC contractors in Canada, complemented by SOLUHVAC, an operations-management app for independent technicians. Vertical integration: client acquisition, job management and invoicing.',
-      },
+      { title: 'ImmiCan', kicker: 'Canadian immigration', summary: 'Lead generation & CRCIC orientation', text: 'A preliminary assessment and orientation platform for Canadian immigration candidates. Specialized in French-speaking Africa: Guinea, Côte d’Ivoire, Cameroon and Senegal. Agent network REP-001 to REP-005.', note: 'All immigration legal advice is provided by CRCIC-regulated consultants or Canadian partner lawyers. ImmiCan operates exclusively as a lead-generation and orientation intermediary under IRPA Art. 91.', status: 'live' },
+      { title: 'AL Escape-ImmiCan', kicker: 'B2B international travel', summary: 'Airline commercial intermediation & business referrals', text: 'A strictly B2B commercial intermediation activity. AL Escape structures customer flows for partner airlines operating across Africa–Europe–Americas corridors. The division does not sell transportation tickets directly.', note: 'CEO: Loïc Rigolet. Positioned exclusively as a B2B commercial introduction intermediary for partner airlines.', status: 'live' },
+      { title: 'AG Nexum Recovery', kicker: 'Unclaimed assets', summary: 'Recovery of dormant assets in Québec', text: 'Search, validation and restitution of dormant assets held by financial institutions and public authorities in Québec. Compensation is strictly success-based: no fees before effective restitution.', status: 'live' },
+      { title: 'AG HVAC Solutions', kicker: 'HVAC & technology', summary: 'HVAC lead generation & SOLUHVAC platform', text: 'Qualified lead generation for HVAC contractors in Canada, complemented by SOLUHVAC — a bilingual operations-management app for independent technicians: customer acquisition, job management and invoicing.', status: 'live' },
+      { title: 'AG Nexum Loan', kicker: 'Personal micro-credit', summary: '500 – 2,500 CAD micro-loans', text: 'Personal micro-credit service for Québec residents facing urgent financial situations. Amounts from 500 to 2,500 CAD.', note: 'Regulated money-lending activity. Operates in strict compliance with the Canadian Criminal Code 35% APR cap and Québec consumer protection law. No hidden fees. PAD only with explicit written consent.', status: 'deploying' },
+      { title: 'AG Expersales', kicker: 'Sales training', summary: 'Sales training & development', text: 'Intensive sales-training program for sales teams, entrepreneurs and independent representatives. Proven methodologies in prospecting, objection handling, negotiation and closing. Content adapted to francophone markets.', status: 'development' },
+      { title: 'AG Business Intelligence', kicker: 'Business intelligence', summary: 'Strategy, analysis & decision-making', text: 'Business intelligence, market analysis and operational strategy advisory for growing SMEs and francophone organizations. Combines advanced analytical tools with sector expertise in Canadian and African markets.', status: 'development' },
     ],
   },
   es: {
     aboutId: 'acerca-de',
+    divisionsId: 'divisiones',
     kicker: 'Quiénes somos',
     title: 'Una sociedad holding canadiense.',
-    titleMuted: 'Cuatro divisiones operativas.',
-    intro: 'AG Nexum Inc. estructura y opera un ecosistema integrado de servicios con altos estándares de cumplimiento.',
+    titleMuted: 'Siete divisiones operativas.',
+    intro: 'AG Nexum Inc. estructura y opera un ecosistema integrado de servicios con alta exigencia de cumplimiento.',
     cardKicker: 'AG Nexum Inc.',
     cardTitle: 'Sociedad holding canadiense',
+    route: 'Québec → África francófona → Europa → Américas',
     paragraphs: [
-      'Registrada ante el registro de empresas de Québec, el grupo estructura y opera un ecosistema integrado de servicios con alta exigencia de cumplimiento: inmigración canadiense, viajes internacionales B2B, recuperación de activos no reclamados y tecnologías sectoriales.',
-      'Nuestra fortaleza nace de una combinación poco común: una sede canadiense sujeta a los estándares exigentes de Québec, equipos multilingües calificados y una red internacional estructurada que cubre África francófona, Europa y las Américas.',
-      'Operamos bajo una lógica de intermediación estratégica: calificar, estructurar y certificar flujos comerciales entre continentes francófonos.',
+      'Constituido y registrado en Québec, el grupo es la plataforma única de un conjunto de marcas especializadas que comparten una misma exigencia: calificar, estructurar y certificar flujos comerciales entre continentes francófonos.',
+      'Nuestra fortaleza se basa en una combinación poco común: una sede canadiense sometida a los estándares exigentes de Québec, equipos multilingües calificados y una red internacional estructurada que cubre África francófona, Europa y las Américas.',
+      'Fundado por Anselme Guigui, CEO, el grupo combina más de veinte años de presencia en Québec, formación médica especializada y experiencia comercial operativa adquirida en Groupe Master, líder norteamericano en distribución HVAC.',
     ],
     stats: [
-      ['04', 'Divisiones operativas'],
-      ['11', 'Miembros del equipo ejecutivo'],
-      ['03', 'Idiomas de atención al cliente'],
+      ['7', 'Divisiones operativas'],
+      ['11+', 'Miembros del equipo ejecutivo'],
+      ['3', 'Idiomas de atención al cliente (FR/EN/ES)'],
       ['20+', 'Años de presencia en Québec'],
+      ['NEQ', '2267508507'],
     ],
     divisionsKicker: 'Nuestras divisiones',
-    divisionsTitle: 'Cuatro marcas, una sola firma.',
+    divisionsTitle: 'Siete marcas, una sola firma.',
+    statusLive: 'Operativo',
+    statusDeploying: 'En despliegue',
+    statusDevelopment: 'En desarrollo',
     divisions: [
-      {
-        title: 'ImmiCan',
-        kicker: 'Inmigración canadiense',
-        summary: 'Generación y calificación de prospectos, con orientación hacia consultores CRCIC.',
-        text: 'Plataforma de evaluación preliminar y orientación para candidatos a la inmigración canadiense. Especialización en África francófona: Guinea, Côte d’Ivoire, Camerún y Senegal. Toda asesoría legal de inmigración es prestada por consultores regulados en regla ante el Colegio de Consultores de Inmigración y Ciudadanía (CICC/CRCIC) o por abogados canadienses aliados.',
-      },
-      {
-        title: 'AL Escape-ImmiCan',
-        kicker: 'Viajes internacionales B2B',
-        summary: 'Intermediación comercial y desarrollo de negocios para aerolíneas.',
-        text: 'Actividad estrictamente B2B de intermediación comercial. AL Escape conecta y estructura flujos de clientes para aerolíneas aliadas que operan en los corredores África–Europa–Américas. La división no vende boletos de transporte directamente.',
-      },
-      {
-        title: 'AG Nexum Recuperación',
-        kicker: 'Activos no reclamados',
-        summary: 'Recuperación de activos no reclamados en Québec. Modelo basado en el éxito.',
-        text: 'Búsqueda, validación y restitución de activos inactivos mantenidos por instituciones financieras y autoridades públicas. La remuneración es exclusivamente contingente: sin costos por adelantado y sin cargos para el beneficiario antes de la restitución efectiva.',
-      },
-      {
-        title: 'AG HVAC Solutions',
-        kicker: 'HVAC & SOLUHVAC',
-        summary: 'Generación de prospectos para contratistas HVAC. Plataforma SOLUHVAC.',
-        text: 'Plataforma de generación de prospectos calificados para contratistas HVAC en Canadá, complementada por SOLUHVAC, una aplicación de gestión operativa para técnicos independientes. Integración vertical: adquisición de clientes, gestión de trabajos y facturación.',
-      },
+      { title: 'ImmiCan', kicker: 'Inmigración canadiense', summary: 'Generación de prospectos y orientación CRCIC', text: 'Plataforma de evaluación preliminar y orientación para candidatos a la inmigración canadiense. Especialización en África francófona: Guinea, Côte d’Ivoire, Camerún y Senegal. Red de agentes REP-001 a REP-005.', note: 'Toda asesoría legal de inmigración es prestada por consultores regulados CRCIC o abogados canadienses aliados. ImmiCan opera exclusivamente como intermediario de generación de prospectos y orientación, conforme al Art. 91 LIPR.', status: 'live' },
+      { title: 'AL Escape-ImmiCan', kicker: 'Viajes internacionales B2B', summary: 'Intermediación y referidos comerciales aéreos', text: 'Actividad estrictamente B2B de intermediación comercial. AL Escape estructura flujos de clientes hacia aerolíneas aliadas que operan en los corredores África–Europa–Américas. La división no vende boletos de transporte directamente.', note: 'CEO: Loïc Rigolet. División posicionada exclusivamente como intermediario B2B de introducción comercial ante aerolíneas aliadas.', status: 'live' },
+      { title: 'AG Nexum Recuperación', kicker: 'Activos no reclamados', summary: 'Recuperación de activos inactivos en Québec', text: 'Búsqueda, validación y restitución de activos inactivos mantenidos por instituciones financieras y autoridades públicas de Québec. La remuneración es exclusivamente contingente: sin cargos antes de la restitución efectiva.', status: 'live' },
+      { title: 'AG HVAC Solutions', kicker: 'HVAC & tecnología', summary: 'Generación de prospectos HVAC y plataforma SOLUHVAC', text: 'Generación de prospectos calificados para contratistas HVAC en Canadá, complementada por SOLUHVAC — aplicación bilingüe de gestión operativa para técnicos independientes: adquisición de clientes, gestión de trabajos y facturación.', status: 'live' },
+      { title: 'AG Nexum Préstamo', kicker: 'Microcrédito personal', summary: 'Micropréstamos 500 – 2.500 CAD', text: 'Servicio de microcrédito personal para residentes de Québec en situaciones de urgencia financiera. Montos de 500 a 2.500 CAD.', note: 'Actividad de préstamo regulada. Opera en estricto cumplimiento del Código Penal canadiense, límite de 35 % TAP, y la Ley de protección del consumidor de Québec. Sin cargos ocultos. Débito PAD únicamente con consentimiento escrito explícito.', status: 'deploying' },
+      { title: 'AG Expersales', kicker: 'Formación comercial', summary: 'Formación y desarrollo de ventas', text: 'Programa intensivo de formación comercial para equipos de ventas, emprendedores y representantes independientes. Metodologías probadas en prospección, manejo de objeciones, negociación y cierre. Contenido adaptado a mercados francófonos.', status: 'development' },
+      { title: 'AG Business Intelligence', kicker: 'Inteligencia de negocios', summary: 'Estrategia, análisis y decisión', text: 'Consultoría en inteligencia de negocios, análisis de mercado y estrategia operativa para pymes y organizaciones francófonas en crecimiento. Combina herramientas analíticas avanzadas con experiencia sectorial en mercados canadienses y africanos.', status: 'development' },
     ],
   },
 }[lang];
@@ -158,7 +173,12 @@ const icons = [
   '<path d="M17.8 19.2 16 11l3.5-3.5a2.1 2.1 0 0 0-3-3L13 8 4.8 6.2 3.5 7.5 9 12l-4 4v2h2l4-4 4.5 5.5 1.3-1.3Z"></path>',
   '<path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>',
   '<path d="M4 14a8 8 0 1 1 16 0"></path><path d="M18 14a6 6 0 0 0-12 0"></path><path d="M8 14a4 4 0 0 1 8 0"></path><path d="M12 14h.01"></path>',
+  '<path d="M6 3h12l2 7-8 11L4 10l2-7Z"></path><path d="M4 10h16"></path><path d="m10 3 2 18 2-18"></path>',
+  '<path d="M4 19V5"></path><path d="M4 5h12l-2 4 2 4H4"></path><path d="M20 19H2"></path>',
+  '<path d="M3 3v18h18"></path><path d="m7 15 4-4 3 3 5-7"></path><path d="M14 7h5v5"></path>',
 ];
+
+const statusLabel = (status: string) => status === 'live' ? data.statusLive : status === 'deploying' ? data.statusDeploying : data.statusDevelopment;
 ---
 
 <section id={data.aboutId} class="relative overflow-hidden border-y border-slate-200 bg-slate-50 py-32 dark:border-slate-800 dark:bg-[#0c1118]">
@@ -173,8 +193,8 @@ const icons = [
       <p class="text-xl leading-relaxed text-slate-600 dark:text-slate-400">{data.intro}</p>
     </div>
 
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-4 lg:grid-rows-[auto_auto]">
-      <div class="glass-panel group relative overflow-hidden rounded-3xl p-8 hover-glow reveal-on-scroll lg:col-span-2 lg:row-span-2">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-5 lg:grid-rows-[auto_auto]">
+      <div class="glass-panel group relative overflow-hidden rounded-3xl p-8 hover-glow reveal-on-scroll lg:col-span-3 lg:row-span-2">
         <div class="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
         <p class="relative z-10 mb-4 text-sm font-bold uppercase tracking-[0.24em] text-accent-600 dark:text-accent-300">{data.cardKicker}</p>
         <h3 class="relative z-10 mb-6 text-3xl font-bold text-slate-900 dark:text-white">{data.cardTitle}</h3>
@@ -182,7 +202,7 @@ const icons = [
           {data.paragraphs.map(paragraph => <p>{paragraph}</p>)}
         </div>
         <div class="relative z-10 mt-8 rounded-xl border border-primary-800 bg-primary-950 p-4 font-mono text-sm text-accent-200 shadow-2xl">
-          <code>{lang === 'es' ? 'Québec → África francófona → Europa → Américas' : lang === 'en' ? 'Québec → French-speaking Africa → Europe → Americas' : 'Québec → Afrique francophone → Europe → Amériques'}</code>
+          <code>{data.route}</code>
         </div>
       </div>
 
@@ -196,7 +216,7 @@ const icons = [
   </div>
 </section>
 
-<section id="divisions" class="relative overflow-hidden bg-white py-32 dark:bg-[#071522]">
+<section id={data.divisionsId} class="relative overflow-hidden bg-white py-32 dark:bg-[#071522]">
   <div class="absolute right-0 top-1/2 h-[540px] w-[540px] -translate-y-1/2 translate-x-1/3 rounded-full bg-primary-500/10 blur-[110px] mix-blend-multiply dark:bg-accent-600/10 dark:mix-blend-screen"></div>
   <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-20 max-w-3xl text-center reveal-on-scroll">
@@ -204,14 +224,23 @@ const icons = [
       <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">{data.divisionsTitle}</h2>
     </div>
 
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
       {data.divisions.map((division, index) => (
-        <article class="glass-panel group flex min-h-[360px] flex-col rounded-3xl p-8 hover-glow reveal-on-scroll" style={`transition-delay: ${index * 90}ms;`}>
-          <div class="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-100 text-primary-700 shadow-inner transition-transform duration-300 group-hover:scale-105 dark:bg-primary-900/50 dark:text-accent-300" set:html={`<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icons[index]}</svg>`} />
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-accent-600 dark:text-accent-300">{division.kicker}</p>
+        <article
+          class="division-card glass-panel group flex min-h-[420px] flex-col overflow-hidden rounded-3xl border-t-4 p-8 hover-glow reveal-on-scroll"
+          style={`--division-color: ${palettes[index]}; border-top-color: ${palettes[index]}; transition-delay: ${index * 80}ms;`}
+        >
+          <div class="mb-6 flex items-start justify-between gap-4">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg transition-transform duration-300 group-hover:scale-105" style={`background: ${palettes[index]}; box-shadow: 0 18px 34px ${palettes[index]}33;`} set:html={`<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icons[index]}</svg>`} />
+            <span class="rounded-full px-3 py-1 text-[0.65rem] font-extrabold uppercase tracking-[0.18em] text-white" style={`background: ${palettes[index]};`}>
+              {statusLabel(division.status)}
+            </span>
+          </div>
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em]" style={`color: ${palettes[index]};`}>{division.kicker}</p>
           <h3 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">{division.title}</h3>
           <p class="mb-5 font-semibold leading-relaxed text-primary-700 dark:text-accent-200">{division.summary}</p>
           <p class="text-slate-600 dark:text-slate-400 leading-relaxed">{division.text}</p>
+          {division.note && <p class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-600 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-400">{division.note}</p>}
         </article>
       ))}
     </div>
