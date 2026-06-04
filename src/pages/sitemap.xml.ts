@@ -12,6 +12,9 @@ const staticEntries: SitemapEntry[] = [
   { path: '/en/' },
   { path: '/en/privacy-policy/' },
   { path: '/en/terms-of-use/' },
+  { path: '/es/' },
+  { path: '/es/politica-de-privacidad/' },
+  { path: '/es/terminos-de-uso/' },
 ];
 
 const escapeXml = (value: string) =>

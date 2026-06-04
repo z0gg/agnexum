@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_DESCRIPTION_ES } from '../../config';
+---
+
+<BaseLayout title="Términos de uso" description={SITE_DESCRIPTION_ES} lang="es">
+  <main class="bg-white py-28 dark:bg-[#071522]">
+    <section class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-accent-600 dark:text-accent-300">Legal</p>
+      <h1 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-6xl">Términos de uso</h1>
+      <p class="mb-12 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+        Al navegar por este sitio web, usted acepta los términos generales que se presentan a continuación. El contenido se ofrece con fines informativos y puede modificarse sin previo aviso.
+      </p>
+
+      <div class="glass-panel space-y-8 rounded-3xl p-6 leading-relaxed text-slate-600 dark:text-slate-400 sm:p-10">
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Uso del sitio</h2>
+          <p>El sitio presenta a AG Nexum Canada, sus divisiones y sus servicios. Los visitantes se comprometen a utilizarlo de forma legal, respetuosa y conforme a su propósito.</p>
+        </section>
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Información general</h2>
+          <p>La información publicada no constituye asesoría legal, financiera, regulatoria o profesional personalizada. Cada solicitud debe evaluarse según su propio contexto.</p>
+        </section>
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Servicios regulados</h2>
+          <p>Cuando un servicio requiere la intervención de un profesional regulado, se presta únicamente por personas o aliados debidamente autorizados conforme a las leyes aplicables.</p>
+        </section>
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Propiedad intelectual</h2>
+          <p>Los textos, elementos visuales, marcas y componentes gráficos del sitio pertenecen a AG Nexum Canada o a sus respectivos titulares. Se prohíbe la reproducción no autorizada.</p>
+        </section>
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Limitación</h2>
+          <p>AG Nexum Canada no puede garantizar que el sitio esté libre de errores o disponible en todo momento. Los visitantes lo utilizan bajo su propia responsabilidad.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

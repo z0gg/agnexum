@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE_DESCRIPTION_ES } from '../../config';
+---
+
+<BaseLayout title="Política de privacidad" description={SITE_DESCRIPTION_ES} lang="es">
+  <main class="bg-white py-28 dark:bg-[#071522]">
+    <section class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-accent-600 dark:text-accent-300">Legal</p>
+      <h1 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-6xl">Política de privacidad</h1>
+      <p class="mb-12 text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+        Esta política describe, en términos generales, cómo AG Nexum Canada puede recopilar, utilizar y proteger la información enviada por los visitantes del sitio.
+      </p>
+
+      <div class="glass-panel space-y-8 rounded-3xl p-6 leading-relaxed text-slate-600 dark:text-slate-400 sm:p-10">
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Información recopilada</h2>
+          <p>Podemos recopilar información proporcionada voluntariamente mediante un formulario de contacto, incluido el nombre, correo electrónico, asunto de la solicitud y contenido del mensaje.</p>
+        </section>
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Uso</h2>
+          <p>Esta información se utiliza para responder consultas, dirigir a los visitantes hacia la división adecuada y brindar el seguimiento administrativo o comercial necesario.</p>
+        </section>
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Protección</h2>
+          <p>AG Nexum Canada aplica medidas razonables para proteger la información recibida contra accesos, usos o divulgaciones no autorizadas.</p>
+        </section>
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Intercambio de información</h2>
+          <p>La información puede compartirse con una división interna o un aliado profesional únicamente cuando sea necesario para procesar una solicitud.</p>
+        </section>
+        <section>
+          <h2 class="mb-3 text-2xl font-bold text-slate-900 dark:text-white">Contacto</h2>
+          <p>Para cualquier pregunta sobre esta política, comuníquese con AG Nexum Canada a través de la sección de contacto del sitio.</p>
+        </section>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
