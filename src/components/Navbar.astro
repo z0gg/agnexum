@@ -20,9 +20,9 @@ const languageLinks = (Object.entries(LOCALES) as [Locale, typeof LOCALES[Locale
   }));
 const contactHref = copy.nav[copy.nav.length - 1]?.href ?? copy.path;
 const topNotice = {
-  fr: 'Société enregistrée au Registraire des entreprises du Québec · NEQ 2267508507 · No conseils juridiques en immigration rendus hors cadre CRCIC/Barreau',
-  en: 'Registered with the Québec enterprise registrar · NEQ 2267508507 · No immigration legal advice outside the CRCIC/Bar framework',
-  es: 'Sociedad registrada ante el registro de empresas de Québec · NEQ 2267508507 · Sin asesoría legal migratoria fuera del marco CRCIC/Colegio de abogados',
+  fr: 'Société enregistrée au Registraire des entreprises du Québec · NEQ 2267508507',
+  en: 'Registered with the Québec enterprise registrar · NEQ 2267508507',
+  es: 'Sociedad registrada ante el registro de empresas de Québec · NEQ 2267508507',
 }[lang];
 ---
 
@@ -98,7 +98,11 @@ const topNotice = {
   <div class="border-t border-primary-900/20 bg-primary-950 text-white">
     <div class="container mx-auto flex flex-col items-center justify-center gap-1 px-4 py-2 text-center text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-white/80 sm:px-6 md:flex-row md:justify-between md:gap-4 md:text-[0.68rem] lg:px-8">
       <span>{topNotice}</span>
-      <span class="whitespace-nowrap text-accent-200">438-543-0363 · info@agnexum.ca</span>
+      <span class="whitespace-nowrap text-accent-200">
+        <a href="tel:+14385430363" class="transition hover:text-white">438-543-0363</a>
+        <span aria-hidden="true"> · </span>
+        <a href="mailto:info@agnexum.ca" class="transition hover:text-white">info@agnexum.ca</a>
+      </span>
     </div>
   </div>
 </header>
