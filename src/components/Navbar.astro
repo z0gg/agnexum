@@ -19,9 +19,14 @@ const languageLinks = (Object.entries(LOCALES) as [Locale, typeof LOCALES[Locale
     shortLabel: localeCopy.shortLabel,
   }));
 const contactHref = copy.nav[copy.nav.length - 1]?.href ?? copy.path;
+const topNotice = {
+  fr: 'Société enregistrée au Registraire des entreprises du Québec · NEQ 2267508507',
+  en: 'Registered with the Québec enterprise registrar · NEQ 2267508507',
+  es: 'Sociedad registrada ante el registro de empresas de Québec · NEQ 2267508507',
+}[lang];
 ---
 
-<header class="sticky top-0 z-[90] w-full rounded-none border-x-0 border-t-0 border-slate-200/70 bg-white/80 shadow-sm backdrop-blur-xl transition-colors duration-300 dark:border-primary-800/60 dark:bg-primary-950/80">
+<header class="sticky top-0 z-[90] w-full rounded-none border-x-0 border-t-0 border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-xl transition-colors duration-300 dark:border-primary-800/60 dark:bg-primary-950/90">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       <div class="flex-shrink-0">
@@ -87,6 +92,17 @@ const contactHref = copy.nav[copy.nav.length - 1]?.href ?? copy.path;
       <div class="mt-4 border-t border-slate-200 pt-4 dark:border-primary-800">
         <Button href={contactHref} variant="primary" class="w-full text-center">{copy.ui.cta}</Button>
       </div>
+    </div>
+  </div>
+
+  <div class="border-t border-primary-900/20 bg-primary-950 text-white">
+    <div class="container mx-auto flex flex-col items-center justify-center gap-1 px-4 py-2 text-center text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-white/80 sm:px-6 md:flex-row md:justify-between md:gap-4 md:text-[0.68rem] lg:px-8">
+      <span>{topNotice}</span>
+      <span class="whitespace-nowrap text-accent-200">
+        <a href="tel:+14385430363" class="transition hover:text-white">438-543-0363</a>
+        <span aria-hidden="true"> · </span>
+        <a href="mailto:info@agnexum.ca" class="transition hover:text-white">info@agnexum.ca</a>
+      </span>
     </div>
   </div>
 </header>

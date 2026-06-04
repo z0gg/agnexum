@@ -3,9 +3,9 @@
 export type Locale = 'fr' | 'en' | 'es';
 
 export const SITE_TITLE = 'AG Nexum Canada';
-export const SITE_DESCRIPTION = 'Un cabinet canadien multidisciplinaire au service de la mobilité, du capital et de la performance.';
-export const SITE_DESCRIPTION_EN = 'A multidisciplinary Canadian firm serving mobility, capital and performance.';
-export const SITE_DESCRIPTION_ES = 'Una firma canadiense multidisciplinaria al servicio de la movilidad, el capital y el desempeño.';
+export const SITE_DESCRIPTION = 'Un cabinet canadien multidisciplinaire au service de la mobilité internationale, du capital et de la performance commerciale.';
+export const SITE_DESCRIPTION_EN = 'A multidisciplinary Canadian firm serving international mobility, capital and commercial performance.';
+export const SITE_DESCRIPTION_ES = 'Una firma canadiense multidisciplinaria al servicio de la movilidad internacional, el capital y el desempeño comercial.';
 export const SITE_URL = 'https://agnexum.ca';
 export const REPOSITORY_URL = 'https://github.com/z0gg/agnexum';
 
@@ -30,6 +30,8 @@ export const LOCALES = {
       { href: '/#a-propos', label: 'À propos' },
       { href: '/#divisions', label: 'Divisions' },
       { href: '/#equipe', label: 'Équipe' },
+      { href: '/#reseau', label: 'Réseau' },
+      { href: '/#ressources', label: 'Ressources' },
       { href: '/#contact', label: 'Contact' },
     ],
     footer: [
@@ -40,6 +42,8 @@ export const LOCALES = {
           { label: 'À propos', href: '/#a-propos' },
           { label: 'Divisions', href: '/#divisions' },
           { label: 'Équipe', href: '/#equipe' },
+          { label: 'Réseau', href: '/#reseau' },
+          { label: 'Ressources', href: '/#ressources' },
           { label: 'Contact', href: '/#contact' },
         ],
       },
@@ -50,6 +54,9 @@ export const LOCALES = {
           { label: 'AL Escape-ImmiCan', href: '/#divisions' },
           { label: 'AG Nexum Recouvrement', href: '/#divisions' },
           { label: 'AG HVAC Solutions', href: '/#divisions' },
+          { label: 'AG Nexum Prêt', href: '/#divisions' },
+          { label: 'AG Expersales', href: '/#divisions' },
+          { label: 'AG Business Intelligence', href: '/#divisions' },
         ],
       },
       {
@@ -59,6 +66,9 @@ export const LOCALES = {
           { label: 'Guinée', href: '/#reseau' },
           { label: 'Cameroun', href: '/#reseau' },
           { label: 'Sénégal', href: '/#reseau' },
+          { label: 'Europe', href: '/#reseau' },
+          { label: 'Amériques', href: '/#reseau' },
+          { label: 'Maghreb / MO', href: '/#reseau' },
         ],
       },
       {
@@ -66,6 +76,7 @@ export const LOCALES = {
         links: [
           { label: 'Politique de confidentialité', href: '/politique-confidentialite/' },
           { label: 'Conditions d’utilisation', href: '/conditions-utilisation/' },
+          { label: 'Accessibilité', href: '/accessibilite/' },
         ],
       },
     ],
@@ -74,7 +85,7 @@ export const LOCALES = {
       openMenu: 'Ouvrir le menu',
       cta: 'Consultation gratuite',
       rights: 'Tous droits réservés.',
-      network: 'Réseau international : Côte d’Ivoire · Guinée · Cameroun · Sénégal',
+      network: 'Réseau : Canada · Côte d’Ivoire · Guinée · Cameroun · Sénégal',
     },
   },
   en: {
@@ -87,6 +98,8 @@ export const LOCALES = {
       { href: '/en/#about', label: 'About' },
       { href: '/en/#divisions', label: 'Divisions' },
       { href: '/en/#team', label: 'Team' },
+      { href: '/en/#network', label: 'Network' },
+      { href: '/en/#resources', label: 'Resources' },
       { href: '/en/#contact', label: 'Contact' },
     ],
     footer: [
@@ -97,6 +110,8 @@ export const LOCALES = {
           { label: 'About', href: '/en/#about' },
           { label: 'Divisions', href: '/en/#divisions' },
           { label: 'Team', href: '/en/#team' },
+          { label: 'Network', href: '/en/#network' },
+          { label: 'Resources', href: '/en/#resources' },
           { label: 'Contact', href: '/en/#contact' },
         ],
       },
@@ -107,6 +122,9 @@ export const LOCALES = {
           { label: 'AL Escape-ImmiCan', href: '/en/#divisions' },
           { label: 'AG Nexum Recovery', href: '/en/#divisions' },
           { label: 'AG HVAC Solutions', href: '/en/#divisions' },
+          { label: 'AG Nexum Loan', href: '/en/#divisions' },
+          { label: 'AG Expersales', href: '/en/#divisions' },
+          { label: 'AG Business Intelligence', href: '/en/#divisions' },
         ],
       },
       {
@@ -116,6 +134,9 @@ export const LOCALES = {
           { label: 'Guinea', href: '/en/#network' },
           { label: 'Cameroon', href: '/en/#network' },
           { label: 'Senegal', href: '/en/#network' },
+          { label: 'Europe', href: '/en/#network' },
+          { label: 'Americas', href: '/en/#network' },
+          { label: 'Maghreb / ME', href: '/en/#network' },
         ],
       },
       {
@@ -123,6 +144,7 @@ export const LOCALES = {
         links: [
           { label: 'Privacy Policy', href: '/en/privacy-policy/' },
           { label: 'Terms of Use', href: '/en/terms-of-use/' },
+          { label: 'Accessibility', href: '/en/accessibility/' },
         ],
       },
     ],
@@ -131,7 +153,7 @@ export const LOCALES = {
       openMenu: 'Open menu',
       cta: 'Free consultation',
       rights: 'All rights reserved.',
-      network: 'International network: Côte d’Ivoire · Guinea · Cameroon · Senegal',
+      network: 'Network: Canada · Côte d’Ivoire · Guinea · Cameroon · Senegal',
     },
   },
   es: {
@@ -144,6 +166,8 @@ export const LOCALES = {
       { href: '/es/#acerca-de', label: 'Acerca de' },
       { href: '/es/#divisiones', label: 'Divisiones' },
       { href: '/es/#equipo', label: 'Equipo' },
+      { href: '/es/#red', label: 'Red' },
+      { href: '/es/#recursos', label: 'Recursos' },
       { href: '/es/#contacto', label: 'Contacto' },
     ],
     footer: [
@@ -154,6 +178,8 @@ export const LOCALES = {
           { label: 'Acerca de', href: '/es/#acerca-de' },
           { label: 'Divisiones', href: '/es/#divisiones' },
           { label: 'Equipo', href: '/es/#equipo' },
+          { label: 'Red', href: '/es/#red' },
+          { label: 'Recursos', href: '/es/#recursos' },
           { label: 'Contacto', href: '/es/#contacto' },
         ],
       },
@@ -164,6 +190,9 @@ export const LOCALES = {
           { label: 'AL Escape-ImmiCan', href: '/es/#divisiones' },
           { label: 'AG Nexum Recuperación', href: '/es/#divisiones' },
           { label: 'AG HVAC Solutions', href: '/es/#divisiones' },
+          { label: 'AG Nexum Préstamo', href: '/es/#divisiones' },
+          { label: 'AG Expersales', href: '/es/#divisiones' },
+          { label: 'AG Business Intelligence', href: '/es/#divisiones' },
         ],
       },
       {
@@ -173,6 +202,9 @@ export const LOCALES = {
           { label: 'Guinea', href: '/es/#red' },
           { label: 'Camerún', href: '/es/#red' },
           { label: 'Senegal', href: '/es/#red' },
+          { label: 'Europa', href: '/es/#red' },
+          { label: 'Américas', href: '/es/#red' },
+          { label: 'Magreb / MO', href: '/es/#red' },
         ],
       },
       {
@@ -180,6 +212,7 @@ export const LOCALES = {
         links: [
           { label: 'Política de privacidad', href: '/es/politica-de-privacidad/' },
           { label: 'Términos de uso', href: '/es/terminos-de-uso/' },
+          { label: 'Accesibilidad', href: '/es/accesibilidad/' },
         ],
       },
     ],
@@ -188,7 +221,7 @@ export const LOCALES = {
       openMenu: 'Abrir menú',
       cta: 'Consulta gratuita',
       rights: 'Todos los derechos reservados.',
-      network: 'Red internacional: Côte d’Ivoire · Guinea · Camerún · Senegal',
+      network: 'Red: Canada · Côte d’Ivoire · Guinea · Camerún · Senegal',
     },
   },
 } as const;
@@ -203,6 +236,9 @@ export const LANGUAGE_ROUTES = {
   '/conditions-utilisation/': { fr: '/conditions-utilisation/', en: '/en/terms-of-use/', es: '/es/terminos-de-uso/' },
   '/en/terms-of-use/': { fr: '/conditions-utilisation/', en: '/en/terms-of-use/', es: '/es/terminos-de-uso/' },
   '/es/terminos-de-uso/': { fr: '/conditions-utilisation/', en: '/en/terms-of-use/', es: '/es/terminos-de-uso/' },
+  '/accessibilite/': { fr: '/accessibilite/', en: '/en/accessibility/', es: '/es/accesibilidad/' },
+  '/en/accessibility/': { fr: '/accessibilite/', en: '/en/accessibility/', es: '/es/accesibilidad/' },
+  '/es/accesibilidad/': { fr: '/accessibilite/', en: '/en/accessibility/', es: '/es/accesibilidad/' },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 // Backward-compatible exports.

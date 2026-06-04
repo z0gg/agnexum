@@ -1,0 +1,102 @@
+---
+import type { Locale } from '../config';
+
+interface Props {
+  lang?: Locale;
+}
+
+const { lang = 'fr' } = Astro.props;
+
+const data = {
+  fr: {
+    id: 'ressources',
+    kicker: 'Ressources & expertise',
+    title: 'Articles & guides pratiques.',
+    read: 'Lire l’article →',
+    items: [
+      {
+        category: 'Immigration canadienne',
+        title: 'Express Entry 2024–2025 : ce que les candidats africains doivent savoir',
+        text: 'Analyse des tirages récents, niveaux de CRS requis, et stratégies d’optimisation du profil pour les ressortissants d’Afrique francophone.',
+      },
+      {
+        category: 'Actifs non réclamés',
+        title: 'Comment récupérer vos actifs dormants au Québec : guide complet 2025',
+        text: 'Procédure officielle, délais, documents requis et rôle d’un intermédiaire spécialisé pour maximiser vos chances de restitution.',
+      },
+      {
+        category: 'Micro-crédit',
+        title: 'Financement d’urgence au Québec : droits du consommateur et plafonds légaux',
+        text: 'Ce qu’il faut savoir sur le taux de 35 % TAP, la Loi sur la protection du consommateur et les contrats de prêt conformes.',
+      },
+    ],
+  },
+  en: {
+    id: 'resources',
+    kicker: 'Resources & expertise',
+    title: 'Practical articles & guides.',
+    read: 'Read article →',
+    items: [
+      {
+        category: 'Canadian immigration',
+        title: 'Express Entry 2024–2025: what African candidates should know',
+        text: 'Recent draw analysis, required CRS levels and profile-optimization strategies for French-speaking African nationals.',
+      },
+      {
+        category: 'Unclaimed assets',
+        title: 'How to recover dormant assets in Québec: complete 2025 guide',
+        text: 'Official procedure, timelines, required documents and the role of a specialized intermediary in maximizing restitution chances.',
+      },
+      {
+        category: 'Micro-credit',
+        title: 'Emergency financing in Québec: consumer rights and legal caps',
+        text: 'What to know about the 35% APR cap, Québec consumer protection law and compliant loan agreements.',
+      },
+    ],
+  },
+  es: {
+    id: 'recursos',
+    kicker: 'Recursos & experiencia',
+    title: 'Artículos y guías prácticas.',
+    read: 'Leer artículo →',
+    items: [
+      {
+        category: 'Inmigración canadiense',
+        title: 'Express Entry 2024–2025: lo que deben saber los candidatos africanos',
+        text: 'Análisis de sorteos recientes, niveles CRS requeridos y estrategias para optimizar perfiles de ciudadanos de África francófona.',
+      },
+      {
+        category: 'Activos no reclamados',
+        title: 'Cómo recuperar activos inactivos en Québec: guía completa 2025',
+        text: 'Procedimiento oficial, plazos, documentos requeridos y rol de un intermediario especializado para maximizar las posibilidades de restitución.',
+      },
+      {
+        category: 'Microcrédito',
+        title: 'Financiamiento de emergencia en Québec: derechos del consumidor y límites legales',
+        text: 'Lo esencial sobre el límite de 35 % TAP, la ley de protección del consumidor de Québec y los contratos de préstamo conformes.',
+      },
+    ],
+  },
+}[lang];
+---
+
+<section id={data.id} class="relative overflow-hidden bg-slate-50 py-32 dark:bg-[#0c1118]">
+  <div class="absolute left-0 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-accent-400/10 blur-[100px]"></div>
+  <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto mb-16 max-w-3xl text-center reveal-on-scroll">
+      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">{data.kicker}</p>
+      <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">{data.title}</h2>
+    </div>
+
+    <div class="mx-auto flex max-w-7xl flex-wrap justify-center gap-6">
+      {data.items.map((item, index) => (
+        <article class="glass-panel group flex h-full w-full flex-col rounded-3xl p-8 hover-glow reveal-on-scroll md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)]" style={`transition-delay: ${index * 80}ms;`}>
+          <p class="mb-4 text-xs font-extrabold uppercase tracking-[0.22em] text-accent-600 dark:text-accent-300">{item.category}</p>
+          <h3 class="mb-5 text-2xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
+          <p class="mb-8 flex-grow leading-relaxed text-slate-600 dark:text-slate-400">{item.text}</p>
+          <span class="font-bold text-primary-700 transition group-hover:text-accent-700 dark:text-accent-300">{data.read}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

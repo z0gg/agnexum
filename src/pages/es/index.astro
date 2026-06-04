@@ -4,6 +4,7 @@ import Hero from '../../components/Hero.astro';
 import Features from '../../components/Features.astro';
 import Testimonials from '../../components/Testimonials.astro';
 import FAQ from '../../components/FAQ.astro';
+import Resources from '../../components/Resources.astro';
 import { SITE_DESCRIPTION_ES } from '../../config';
 ---
 
@@ -12,6 +13,7 @@ import { SITE_DESCRIPTION_ES } from '../../config';
   <Features lang="es" />
   <Testimonials lang="es" />
   <FAQ lang="es" />
+  <Resources lang="es" />
 
   <section id="contacto" class="relative overflow-hidden bg-primary-700 py-32 text-white dark:bg-primary-950">
     <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+CjxyZWN0IHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjE1KSI+PC9jaXJjbGU+Cjwvc3ZnPg==')] opacity-40"></div>
@@ -22,11 +24,17 @@ import { SITE_DESCRIPTION_ES } from '../../config';
         <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-accent-200">Contáctenos</p>
         <h2 class="mb-6 text-4xl font-extrabold md:text-6xl">Consulta gratuita</h2>
         <p class="mb-8 text-xl leading-relaxed text-white/80">
-          Comuníquese con AG Nexum Canada para calificar, estructurar y dirigir su solicitud hacia la división adecuada.
+          Comuníquese con AG Nexum Canada. Calificamos, estructuramos y dirigimos su solicitud hacia la división adecuada. Respuesta en un plazo de 24 horas hábiles.
         </p>
         <div class="rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-md">
-          <p class="font-bold text-accent-200">771 Rue Dubuisson</p>
-          <p class="mt-1 text-white/75">Longueuil, QC J4L 2S8 · Canada</p>
+          <p class="font-bold text-accent-200">Dirección</p>
+          <p class="mt-1 text-white/75">771 Rue Dubuisson<br />Longueuil, QC J4L 2S8</p>
+          <p class="mt-5 font-bold text-accent-200">Teléfono</p>
+          <p class="mt-1"><a href="tel:+14385430363" class="text-white/75 underline-offset-4 transition hover:text-white hover:underline">438-543-0363</a></p>
+          <p class="mt-5 font-bold text-accent-200">Correo electrónico</p>
+          <p class="mt-1"><a href="mailto:info@agnexum.ca" class="text-white/75 underline-offset-4 transition hover:text-white hover:underline">info@agnexum.ca</a></p>
+          <p class="mt-5 font-bold text-accent-200">No empresa (REQ)</p>
+          <p class="mt-1 text-white/75">NEQ 2267508507</p>
         </div>
       </div>
 
@@ -44,6 +52,20 @@ import { SITE_DESCRIPTION_ES } from '../../config';
         <label class="mt-4 block">
           <span class="mb-2 block text-sm font-bold text-slate-700 dark:text-slate-200">Asunto</span>
           <input type="text" name="subject" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30 dark:border-slate-700 dark:bg-slate-950 dark:text-white" />
+        </label>
+        <label class="mt-4 block">
+          <span class="mb-2 block text-sm font-bold text-slate-700 dark:text-slate-200">División correspondiente</span>
+          <select name="division" required class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-accent-500 focus:ring-2 focus:ring-accent-500/30 dark:border-slate-700 dark:bg-slate-950 dark:text-white">
+            <option value="">Seleccione una división</option>
+            <option value="ImmiCan">ImmiCan</option>
+            <option value="AL Escape-ImmiCan">AL Escape-ImmiCan</option>
+            <option value="AG Nexum Recuperación">AG Nexum Recuperación</option>
+            <option value="AG HVAC Solutions">AG HVAC Solutions</option>
+            <option value="AG Nexum Préstamo">AG Nexum Préstamo</option>
+            <option value="AG Expersales">AG Expersales</option>
+            <option value="AG Business Intelligence">AG Business Intelligence</option>
+            <option value="Otra / No estoy seguro">Otra / No estoy seguro</option>
+          </select>
         </label>
         <label class="mt-4 block">
           <span class="mb-2 block text-sm font-bold text-slate-700 dark:text-slate-200">Mensaje</span>
