@@ -13,25 +13,22 @@ const localized = {
     id: 'ressources',
     kicker: 'Ressources & expertise',
     title: 'Articles & guides pratiques.',
-    intro: 'Trois articles pilotes structurés avec sources officielles, législatives et références publiques vérifiées.',
+    intro: 'Trois guides pratiques pour mieux comprendre l’immigration, les actifs non réclamés et le financement d’urgence.',
     read: 'Lire l’article →',
-    sources: 'sources vérifiées',
   },
   en: {
     id: 'resources',
     kicker: 'Resources & expertise',
     title: 'Practical articles & guides.',
-    intro: 'Three pilot articles structured with official, legislative and verified public-reference sources.',
+    intro: 'Three practical guides to better understand immigration, unclaimed assets and emergency financing.',
     read: 'Read article →',
-    sources: 'verified sources',
   },
   es: {
     id: 'recursos',
     kicker: 'Recursos & experiencia',
     title: 'Artículos y guías prácticas.',
-    intro: 'Tres artículos piloto estructurados con fuentes oficiales, legislativas y referencias públicas verificadas.',
+    intro: 'Tres guías prácticas para comprender mejor inmigración, activos no reclamados y financiamiento de emergencia.',
     read: 'Leer artículo →',
-    sources: 'fuentes verificadas',
   },
 }[lang];
 
@@ -48,7 +45,7 @@ const articles = getArticlesForLocale(lang);
     </div>
 
     <div class="mx-auto flex max-w-7xl flex-wrap justify-center gap-6">
-      {articles.map(({ content: item, color, accent, icon, sources }, index) => (
+      {articles.map(({ content: item, color, accent }, index) => (
         <article
           class="group relative flex min-h-[34rem] w-full overflow-hidden rounded-3xl border bg-white p-8 shadow-xl shadow-slate-900/8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] dark:bg-[#071522] reveal-on-scroll"
           style={`transition-delay: ${index * 80}ms; border-color: ${color}55; box-shadow: 0 18px 60px ${color}1f;`}
@@ -61,9 +58,7 @@ const articles = getArticlesForLocale(lang);
                 <p class="mb-2 text-xs font-extrabold uppercase tracking-[0.22em]" style={`color: ${color};`}>{item.category}</p>
                 <p class="text-sm font-bold text-slate-500 dark:text-slate-400">{item.division}</p>
               </div>
-              <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-2xl shadow-inner" style={`background-color: ${accent}; color: ${color};`}>
-                {icon}
-              </div>
+              <div class="h-14 w-14 shrink-0 rounded-2xl shadow-inner" style={`background: linear-gradient(135deg, ${color}, ${accent});`}></div>
             </div>
 
             <h3 class="mb-5 text-2xl font-extrabold leading-tight text-slate-900 dark:text-white">{item.title}</h3>
@@ -78,7 +73,7 @@ const articles = getArticlesForLocale(lang);
             </div>
 
             <div class="mt-auto flex items-center justify-between gap-4 border-t border-slate-200 pt-5 dark:border-primary-800">
-              <span class="text-xs font-extrabold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{sources.length} {localized.sources}</span>
+              <span class="text-xs font-extrabold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{item.readTime}</span>
               <a href={resolvePath(item.href)} class="font-bold transition hover:opacity-80" style={`color: ${color};`}>
                 {localized.read}
               </a>
