@@ -1,3 +1,5 @@
+import { ARTICLES } from '../data/articles';
+
 export async function GET() {
   const searchIndex = [
     {
@@ -63,6 +65,29 @@ export async function GET() {
       type: 'Section',
       lang: 'es',
     },
+    ...ARTICLES.flatMap((article) => [
+      {
+        title: article.locales.fr.title,
+        description: article.locales.fr.description,
+        slug: article.locales.fr.href,
+        type: 'Article',
+        lang: 'fr',
+      },
+      {
+        title: article.locales.en.title,
+        description: article.locales.en.description,
+        slug: article.locales.en.href,
+        type: 'Article',
+        lang: 'en',
+      },
+      {
+        title: article.locales.es.title,
+        description: article.locales.es.description,
+        slug: article.locales.es.href,
+        type: 'Article',
+        lang: 'es',
+      },
+    ]),
   ];
 
   return new Response(JSON.stringify(searchIndex), {

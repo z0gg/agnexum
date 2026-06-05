@@ -239,6 +239,15 @@ export const LANGUAGE_ROUTES = {
   '/accessibilite/': { fr: '/accessibilite/', en: '/en/accessibility/', es: '/es/accesibilidad/' },
   '/en/accessibility/': { fr: '/accessibilite/', en: '/en/accessibility/', es: '/es/accesibilidad/' },
   '/es/accesibilidad/': { fr: '/accessibilite/', en: '/en/accessibility/', es: '/es/accesibilidad/' },
+  '/articles/express-entry-afrique-francophone/': { fr: '/articles/express-entry-afrique-francophone/', en: '/en/articles/express-entry-francophone-africa/', es: '/es/articulos/express-entry-africa-francofona/' },
+  '/en/articles/express-entry-francophone-africa/': { fr: '/articles/express-entry-afrique-francophone/', en: '/en/articles/express-entry-francophone-africa/', es: '/es/articulos/express-entry-africa-francofona/' },
+  '/es/articulos/express-entry-africa-francofona/': { fr: '/articles/express-entry-afrique-francophone/', en: '/en/articles/express-entry-francophone-africa/', es: '/es/articulos/express-entry-africa-francofona/' },
+  '/articles/actifs-non-reclames-quebec/': { fr: '/articles/actifs-non-reclames-quebec/', en: '/en/articles/unclaimed-assets-quebec/', es: '/es/articulos/activos-no-reclamados-quebec/' },
+  '/en/articles/unclaimed-assets-quebec/': { fr: '/articles/actifs-non-reclames-quebec/', en: '/en/articles/unclaimed-assets-quebec/', es: '/es/articulos/activos-no-reclamados-quebec/' },
+  '/es/articulos/activos-no-reclamados-quebec/': { fr: '/articles/actifs-non-reclames-quebec/', en: '/en/articles/unclaimed-assets-quebec/', es: '/es/articulos/activos-no-reclamados-quebec/' },
+  '/articles/financement-urgence-quebec/': { fr: '/articles/financement-urgence-quebec/', en: '/en/articles/emergency-financing-quebec/', es: '/es/articulos/financiamiento-emergencia-quebec/' },
+  '/en/articles/emergency-financing-quebec/': { fr: '/articles/financement-urgence-quebec/', en: '/en/articles/emergency-financing-quebec/', es: '/es/articulos/financiamiento-emergencia-quebec/' },
+  '/es/articulos/financiamiento-emergencia-quebec/': { fr: '/articles/financement-urgence-quebec/', en: '/en/articles/emergency-financing-quebec/', es: '/es/articulos/financiamiento-emergencia-quebec/' },
 } as const satisfies Record<string, Record<Locale, string>>;
 
 // Backward-compatible exports.

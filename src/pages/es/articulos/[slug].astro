@@ -1,0 +1,15 @@
+---
+import ArticleDetail from '../../../components/ArticleDetail.astro';
+import { ARTICLES } from '../../../data/articles';
+
+export function getStaticPaths() {
+  return ARTICLES.map((article) => ({
+    params: { slug: article.locales.es.slug },
+    props: { article, content: article.locales.es },
+  }));
+}
+
+const { article, content } = Astro.props;
+---
+
+<ArticleDetail article={article} content={content} lang="es" />

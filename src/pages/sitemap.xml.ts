@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { SITE_URL } from '../config';
+import { ARTICLES } from '../data/articles';
 
 type SitemapEntry = {
   path: string;
@@ -18,6 +19,11 @@ const staticEntries: SitemapEntry[] = [
   { path: '/es/politica-de-privacidad/' },
   { path: '/es/terminos-de-uso/' },
   { path: '/es/accesibilidad/' },
+  ...ARTICLES.flatMap((article) => [
+    { path: article.locales.fr.href },
+    { path: article.locales.en.href },
+    { path: article.locales.es.href },
+  ]),
 ];
 
 const escapeXml = (value: string) =>
