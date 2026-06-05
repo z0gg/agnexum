@@ -1,100 +1,81 @@
 ---
 import type { Locale } from '../config';
+import { getArticlesForLocale } from '../data/articles';
+import { resolvePath } from '../utils/navigation';
 
 interface Props {
   lang?: Locale;
 }
 
 const { lang = 'fr' } = Astro.props;
-
-const data = {
+const localized = {
   fr: {
     id: 'ressources',
     kicker: 'Ressources & expertise',
     title: 'Articles & guides pratiques.',
+    intro: 'Trois guides pratiques pour mieux comprendre l’immigration, les actifs non réclamés et le financement d’urgence.',
     read: 'Lire l’article →',
-    items: [
-      {
-        category: 'Immigration canadienne',
-        title: 'Express Entry 2024–2025 : ce que les candidats africains doivent savoir',
-        text: 'Analyse des tirages récents, niveaux de CRS requis, et stratégies d’optimisation du profil pour les ressortissants d’Afrique francophone.',
-      },
-      {
-        category: 'Actifs non réclamés',
-        title: 'Comment récupérer vos actifs dormants au Québec : guide complet 2025',
-        text: 'Procédure officielle, délais, documents requis et rôle d’un intermédiaire spécialisé pour maximiser vos chances de restitution.',
-      },
-      {
-        category: 'Micro-crédit',
-        title: 'Financement d’urgence au Québec : droits du consommateur et plafonds légaux',
-        text: 'Ce qu’il faut savoir sur le taux de 35 % TAP, la Loi sur la protection du consommateur et les contrats de prêt conformes.',
-      },
-    ],
   },
   en: {
     id: 'resources',
     kicker: 'Resources & expertise',
     title: 'Practical articles & guides.',
+    intro: 'Three practical guides to better understand immigration, unclaimed assets and emergency financing.',
     read: 'Read article →',
-    items: [
-      {
-        category: 'Canadian immigration',
-        title: 'Express Entry 2024–2025: what African candidates should know',
-        text: 'Recent draw analysis, required CRS levels and profile-optimization strategies for French-speaking African nationals.',
-      },
-      {
-        category: 'Unclaimed assets',
-        title: 'How to recover dormant assets in Québec: complete 2025 guide',
-        text: 'Official procedure, timelines, required documents and the role of a specialized intermediary in maximizing restitution chances.',
-      },
-      {
-        category: 'Micro-credit',
-        title: 'Emergency financing in Québec: consumer rights and legal caps',
-        text: 'What to know about the 35% APR cap, Québec consumer protection law and compliant loan agreements.',
-      },
-    ],
   },
   es: {
     id: 'recursos',
     kicker: 'Recursos & experiencia',
     title: 'Artículos y guías prácticas.',
+    intro: 'Tres guías prácticas para comprender mejor inmigración, activos no reclamados y financiamiento de emergencia.',
     read: 'Leer artículo →',
-    items: [
-      {
-        category: 'Inmigración canadiense',
-        title: 'Express Entry 2024–2025: lo que deben saber los candidatos africanos',
-        text: 'Análisis de sorteos recientes, niveles CRS requeridos y estrategias para optimizar perfiles de ciudadanos de África francófona.',
-      },
-      {
-        category: 'Activos no reclamados',
-        title: 'Cómo recuperar activos inactivos en Québec: guía completa 2025',
-        text: 'Procedimiento oficial, plazos, documentos requeridos y rol de un intermediario especializado para maximizar las posibilidades de restitución.',
-      },
-      {
-        category: 'Microcrédito',
-        title: 'Financiamiento de emergencia en Québec: derechos del consumidor y límites legales',
-        text: 'Lo esencial sobre el límite de 35 % TAP, la ley de protección del consumidor de Québec y los contratos de préstamo conformes.',
-      },
-    ],
   },
 }[lang];
+
+const articles = getArticlesForLocale(lang);
 ---
 
-<section id={data.id} class="relative overflow-hidden bg-slate-50 py-32 dark:bg-[#0c1118]">
+<section id={localized.id} class="relative overflow-hidden bg-slate-50 py-32 dark:bg-[#0c1118]">
   <div class="absolute left-0 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-accent-400/10 blur-[100px]"></div>
   <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mx-auto mb-16 max-w-3xl text-center reveal-on-scroll">
-      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">{data.kicker}</p>
-      <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">{data.title}</h2>
+      <p class="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-primary-700 dark:text-accent-300">{localized.kicker}</p>
+      <h2 class="mb-6 text-4xl font-extrabold text-slate-900 dark:text-white md:text-5xl">{localized.title}</h2>
+      <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">{localized.intro}</p>
     </div>
 
     <div class="mx-auto flex max-w-7xl flex-wrap justify-center gap-6">
-      {data.items.map((item, index) => (
-        <article class="glass-panel group flex h-full w-full flex-col rounded-3xl p-8 hover-glow reveal-on-scroll md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)]" style={`transition-delay: ${index * 80}ms;`}>
-          <p class="mb-4 text-xs font-extrabold uppercase tracking-[0.22em] text-accent-600 dark:text-accent-300">{item.category}</p>
-          <h3 class="mb-5 text-2xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
-          <p class="mb-8 flex-grow leading-relaxed text-slate-600 dark:text-slate-400">{item.text}</p>
-          <span class="font-bold text-primary-700 transition group-hover:text-accent-700 dark:text-accent-300">{data.read}</span>
+      {articles.map(({ content: item, color, accent }, index) => (
+        <article
+          class="group relative flex min-h-[34rem] w-full overflow-hidden rounded-3xl border bg-white p-8 shadow-xl shadow-slate-900/8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl md:basis-[calc(50%-0.75rem)] lg:basis-[calc(33.333%-1rem)] dark:bg-[#071522] reveal-on-scroll"
+          style={`transition-delay: ${index * 80}ms; border-color: ${color}55; box-shadow: 0 18px 60px ${color}1f;`}
+        >
+          <div class="absolute inset-x-0 top-0 h-2" style={`background-color: ${color};`}></div>
+          <div class="absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-30 transition group-hover:scale-110" style={`background: radial-gradient(circle, ${color} 0%, transparent 70%);`}></div>
+          <div class="relative z-10 flex min-h-[24rem] flex-col">
+            <div class="mb-6">
+              <p class="mb-2 text-xs font-extrabold uppercase tracking-[0.22em]" style={`color: ${color};`}>{item.category}</p>
+              <p class="text-sm font-bold text-slate-500 dark:text-slate-400">{item.division}</p>
+            </div>
+
+            <h3 class="mb-5 text-2xl font-extrabold leading-tight text-slate-900 dark:text-white">{item.title}</h3>
+            <p class="mb-6 flex-grow leading-relaxed text-slate-600 dark:text-slate-400">{item.description}</p>
+
+            <div class="mb-6 flex flex-wrap gap-2">
+              {item.highlights.slice(0, 2).map((highlight) => (
+                <span class="rounded-full border px-3 py-1 text-xs font-bold text-slate-600 dark:text-slate-300" style={`border-color: ${color}33; background-color: ${accent};`}>
+                  {highlight}
+                </span>
+              ))}
+            </div>
+
+            <div class="mt-auto flex items-center justify-between gap-4 border-t border-slate-200 pt-5 dark:border-primary-800">
+              <span class="text-xs font-extrabold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{item.readTime}</span>
+              <a href={resolvePath(item.href)} class="font-bold transition hover:opacity-80" style={`color: ${color};`}>
+                {localized.read}
+              </a>
+            </div>
+          </div>
         </article>
       ))}
     </div>
